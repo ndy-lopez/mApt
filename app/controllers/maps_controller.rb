@@ -2,11 +2,12 @@ class MapsController < ApplicationController
 
   def show
     @map = Map.find(params[:id])
+
   end
 
   def my_maps
     @maps = current_user.maps
-    @point_of_interests = Point_of_interests.map_id
+
   end
 
   def new
@@ -25,5 +26,14 @@ class MapsController < ApplicationController
 
   end
 
+  private
+
+  def set_map
+    @map = Map.find(params[:id])
+  end
+
+  def map_params
+    params.require(:map).permit(:name)
+  end
 
 end

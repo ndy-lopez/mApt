@@ -1,1 +1,11 @@
 <h1>My Maps</h1>
+
+<ul>
+  <% @maps.each do |map| %>
+    <li>
+      <%= map.name %>
+      <p> # of poi: <%= map.point_of_interests.count %> </p>
+    </li>
+
+  <% end %>
+</ul>
