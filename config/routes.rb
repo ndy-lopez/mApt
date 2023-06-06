@@ -7,4 +7,6 @@ Rails.application.routes.draw do
   # root "articles#index"
 
   get 'my-maps', to: 'maps#my_maps', as: :my_maps
+  get 'compare', to: 'maps#compare', as: :compare
+  resources :maps
 end

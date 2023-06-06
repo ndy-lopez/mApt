@@ -4,7 +4,9 @@
   <% @maps.each do |map| %>
     <li>
       <%= map.name %>
-      <p> # of poi: <%= map.point_of_interests.count %> </p>
+      <p> Points of interests:: <%= map.point_of_interests.count %> </p>
+      <p> Potential homes mApt out: <%= map.potential_locations.count %> </p>
+      <a class="btn btn-flat" href="#">Open Map</a>
     </li>
 
   <% end %>
