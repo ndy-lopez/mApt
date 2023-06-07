@@ -1,31 +1,33 @@
 class PointOfInterestsController < ApplicationController
 
   def index
-    if params[:query].present?
-      @pois = @pois.where(map_id: params[:query].to_i)
-    else
-      @map = current_user.maps.first
-      @pois = current_user.point_of_interests.where(map: @map)
-    end
-
+    set_pois
     @poi = PointOfInterest.new
-
-  end
-
-  def new
-
   end
 
   def create
     @poi = PointOfInterest.new(poi_params)
-    if @map.save
-      render notice: "POI was successfully added."
+    @poi.map = Map.first
+    if @poi.save
+      redirect_to point_of_interests_path, notice: "POI was successfully added."
     else
-      render :new, status: :unprocessable_entity
+      set_pois
+      render :index, status: :unprocessable_entity
     end
   end
 
   private
+
+  def set_pois
+    # if params[:query].present?
+    #   @pois = @pois.where(map_id: params[:query].to_i)
+    # else
+    #   @map = current_user.maps.first
+    #   @pois = current_user.point_of_interests.where(map: @map)
+    # end
+    @map = current_user.maps.first
+    @pois = current_user.point_of_interests.where(map: @map)
+  end
 
   def set_poi
     @poi = PointOfInterest.find(params[:id])
