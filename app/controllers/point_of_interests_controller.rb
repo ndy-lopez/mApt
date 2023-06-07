@@ -8,7 +8,7 @@ class PointOfInterestsController < ApplicationController
       @pois = current_user.point_of_interests.where(map: @map)
     end
 
-    # @maps = []
+    @poi = PointOfInterest.new
 
   end
 
@@ -17,7 +17,21 @@ class PointOfInterestsController < ApplicationController
   end
 
   def create
-
+    @poi = PointOfInterest.new(poi_params)
+    if @map.save
+      render notice: "POI was successfully added."
+    else
+      render :new, status: :unprocessable_entity
+    end
   end
 
+  private
+
+  def set_poi
+    @poi = PointOfInterest.find(params[:id])
+  end
+
+  def poi_params
+    params.require(:point_of_interest).permit(:name, :address, :category)
+  end
 end
