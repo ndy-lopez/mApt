@@ -5,7 +5,7 @@ export default class extends Controller {
   static targets = ["content"]
 
   connect() {
-    initMap()
+    this.initMap()
   }
 
   async initMap() {
