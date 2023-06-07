@@ -7,7 +7,7 @@
       <p> City: <%= map.city %> </p>
       <p> Points of interests: <%= map.point_of_interests.count %> </p>
       <p> Potential homes mApt out: <%= map.potential_locations.count %> </p>
-      <a class="btn btn-flat" href="#">Open Map</a>
+      <a class="btn btn-flat" href= "/maps/<%=map.id%>" >Open Map</a>
     </li>
 
   <% end %>
