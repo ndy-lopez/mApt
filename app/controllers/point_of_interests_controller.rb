@@ -7,6 +7,9 @@ class PointOfInterestsController < ApplicationController
       @map = current_user.maps.first
       @pois = current_user.point_of_interests.where(map: @map)
     end
+
+    # @maps = []
+
   end
 
   def new
