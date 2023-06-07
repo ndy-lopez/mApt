@@ -14,11 +14,19 @@ class MapsController < ApplicationController
   end
 
   def new
-
+    @map = Map.new
   end
 
   def create
+    @map = Map.new(map_params)
+    @map.user = current_user
+    if @map.save
+      redirect_to @map, notice: "Map was successfully created."
+    else
 
+      render :new, status: :unprocessable_entity
+
+    end
   end
 
   def edit
@@ -36,7 +44,7 @@ class MapsController < ApplicationController
   end
 
   def map_params
-    params.require(:map).permit(:name)
+    params.require(:map).permit(:name, :city)
   end
 
 end
