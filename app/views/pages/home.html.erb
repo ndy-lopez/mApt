@@ -13,7 +13,23 @@
   let map;
 
   async function initMap() {
-    // The location of Uluru
+
+const beachFlagImg = document.createElement("img");
+
+// START - Icon - In case the marker is an icon
+beachFlagImg.src =   "https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png";
+// END - Icon
+
+// START - PinElement - In case the marker is a pin
+      const {PinElement} = await google.maps.importLibrary("marker")
+      const mAptPin = new PinElement({
+        borderColor: "blue",
+        glyphColor: "black",
+        background: "pink",
+        glyph: "xyz",
+        scale: 1.5,
+      });
+// END - PinElement
 
     const set_map = (result) => {
       const position = result[0].geometry.location
@@ -24,36 +40,22 @@
         mapId: "DEMO_MAP_ID",
       });
 
-    // The marker, positioned at Uluru
+      // The marker
       const marker = new AdvancedMarkerElement({
         map: map,
         position: position,
         title: result[0].formatted_address,
+        // content: mAptPin.element, // the marker is a pin
+        content: beachFlagImg, // OR the marker is an icon
       });
     }
 
-    // const position = { lat: -25.344, lng: 131.031 };
     // Request needed libraries.
-    //@ts-ignore
     const { Map } = await google.maps.importLibrary("maps");
     const { AdvancedMarkerElement } = await google.maps.importLibrary("marker");
     const { Geocoder } = await google.maps.importLibrary("geocoding")
     const geo = new Geocoder
     geo.geocode({ address: "montreal" }, set_map)
-
-    // The map, centered at Uluru
-    // map = new Map(document.getElementById("map"), {
-    //   zoom: 4,
-    //   center: position,
-    //   mapId: "DEMO_MAP_ID",
-    // });
-
-    // // The marker, positioned at Uluru
-    // const marker = new AdvancedMarkerElement({
-    //   map: map,
-    //   position: position,
-    //   title: "Uluru",
-    // });
   }
 
   initMap();
