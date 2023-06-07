@@ -1,0 +1,32 @@
+<h1>Your Points of Interests</h1>
+
+<%= simple_form_for(@poi) do |f| %>
+
+  <div class="form-inputs">
+    <%= f.input :name %>
+    <%= f.input :address %>
+    <p>Category</p>
+    <%= f.select :category, [["People"], ["Food"], ["School"], ["Work"]] %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>
+
+
+<ul>
+<%= @pois.first.map.name %>
+  <% @pois.each do |poi| %>
+    <li>
+      <%= poi.name %>
+    </li>
+     <li>
+      <%= poi.category %>
+    </li>
+    <li>
+      <%=  poi.address %>
+    </li>
+
+  <% end %>
+</ul>

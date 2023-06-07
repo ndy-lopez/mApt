@@ -5,4 +5,5 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_many :maps
+  has_many :point_of_interests, through: :maps
 end
