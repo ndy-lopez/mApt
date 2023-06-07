@@ -2,11 +2,14 @@ class MapsController < ApplicationController
 
   def show
     @map = Map.find(params[:id])
-
   end
 
   def my_maps
     @maps = current_user.maps
+
+  end
+
+  def compare
 
   end
 

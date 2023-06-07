@@ -14,8 +14,9 @@ User.destroy_all
 user1 = User.create!(username: 'Smith', email: 'john@gmail.com', password: 'password')
 user2 = User.create!(username: 'Tim', email: 'tim@gmail.com', password: 'password')
 
-map1 = Map.create(name: 'Montreal', user_id: user1.id)
-map2 = Map.create(name: 'Athens', user_id: user2.id)
+map1 = Map.create(name: 'University', city: 'Montreal', user_id: user1.id)
+map2 = Map.create(name: 'Summer Abroad', city: 'Athens', user_id: user1.id)
+map2 = Map.create(name: 'Bachelor Party', city: 'Las Vegas', user_id: user2.id)
 
 poi1 = PointOfInterest.create!(name: 'Tom', category: 'friend', address: '528 Victoria', latitude: '', longitude: '', map_id: map1.id)
 
