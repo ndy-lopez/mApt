@@ -1,1 +1,12 @@
 <h1>Your Points of Interests</h1>
+
+
+<ul>
+<%= @pois.first.map.name %>
+  <% @pois.each do |poi| %>
+    <li>
+      <%=  poi.address %>
+    </li>
+
+  <% end %>
+</ul>

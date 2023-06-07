@@ -1,4 +1,4 @@
 class PointOfInterest < ApplicationRecord
   belongs_to :map
-  resources
+  delegate :user, to: :map
 end
