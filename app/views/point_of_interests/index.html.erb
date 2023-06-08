@@ -1,4 +1,4 @@
-<h1>Your Points of Interests</h1>
+<h1>My address book</h1>
 
 <%= simple_form_for(@poi) do |f| %>
 
@@ -14,7 +14,6 @@
   </div>
 <% end %>
 
-
 <% if current_user.maps.any? %>
   <ul>
     <%= @pois.first.map.name %>
@@ -28,9 +27,17 @@
       <li>
         <%=  poi.address %>
       </li>
-
     <% end %>
   </ul>
 <% else %>
   <p>You have no maps</p>
 <% end %>
+
+
+<div class ="card">
+<% PointOfInterest.all.each do |point| %>
+  <%= point.name %>
+  <%= point.category %>
+  <%= point.address %>
+<% end %>
+</div>
