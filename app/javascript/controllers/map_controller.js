@@ -3,6 +3,9 @@ import { Controller } from "@hotwired/stimulus"
 // Connects to data-controller="map"
 export default class extends Controller {
   static targets = ["content"]
+  static values = {
+    address: String
+  }
 
   connect() {
     this.initMap()
@@ -10,6 +13,11 @@ export default class extends Controller {
 
   async initMap() {
   // async function initMap() {
+    const { Map } = await google.maps.importLibrary("maps");
+    const { AdvancedMarkerElement } = await google.maps.importLibrary("marker");
+    const { Geocoder } = await google.maps.importLibrary("geocoding")
+    const {PinElement} = await google.maps.importLibrary("marker")
+
 
     const beachFlagImg = document.createElement("img");
 
@@ -18,7 +26,6 @@ export default class extends Controller {
     // END - Icon
 
     // START - PinElement - In case the marker is a pin
-    const {PinElement} = await google.maps.importLibrary("marker")
     const mAptPin = new PinElement({
       borderColor: "blue",
       glyphColor: "black",
@@ -48,11 +55,8 @@ export default class extends Controller {
     }
 
     // Request needed libraries.
-    const { Map } = await google.maps.importLibrary("maps");
-    const { AdvancedMarkerElement } = await google.maps.importLibrary("marker");
-    const { Geocoder } = await google.maps.importLibrary("geocoding")
     const geo = new Geocoder
-    geo.geocode({ address: "montreal" }, set_map)
+    geo.geocode({ address: this.addressValue }, set_map)
   }
 
 }
