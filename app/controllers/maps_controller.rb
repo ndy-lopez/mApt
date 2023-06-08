@@ -4,6 +4,7 @@ class MapsController < ApplicationController
     @map = Map.find(params[:id])
     @pot_locs = @map.potential_locations
     @new_pot_loc = PotentialLocation.new
+    @address = "quebec"
   end
 
   def my_maps
