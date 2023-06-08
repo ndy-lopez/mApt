@@ -1,19 +1,25 @@
 <div class="container-address-book">
   <div>
-    <h1>My address book</h1>
-
+  <div class= "poi-title">
+    <div class="poi-book" >
+      <i class="fa-solid fa-address-book fa-2xl" style="color: #11009e;"></i>
+    </div>
+    <h1 style="color: $navy;">My address book for </h1>
+  </div>
     <%= simple_form_for(@poi) do |f| %>
-
+    <div>
       <div class="form-inputs">
         <%= f.input :name %>
         <%= f.input :address %>
-        <p>Category</p>
+        <%= f.input :category %>
+        <%# <p>Category</p>
         <%= f.select :category, [["People"], ["Food"], ["School"], ["Work"]] %>
       </div>
 
       <div class="form-actions">
         <%= f.button :submit %>
       </div>
+    </div>
     <% end %>
   </div>
 
@@ -23,9 +29,13 @@
         <% @pois.each do |poi| %>
           <div class="card-poi">
             <div class="poi-white">
-             <div>
+              <div>
                 <p><%= poi.name %></p>
-                <p><%= poi.category %></p>
+                <p class="poi-black"><%= poi.category %></p>
+              </div>
+              <div class="poi-edit-garbage" >
+                <i class="fa-solid fa-pen" style="color: #11009e;"></i>
+                <i class="fa-solid fa-trash-can" style="color: #11009e;"></i>
               </div>
             </div>
              <div class="poi-purple">

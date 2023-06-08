@@ -24,3 +24,19 @@ $border-radius-lg: 2px;
 $border-radius-sm: 2px;
 
 // Override other variables below!
+.form-control {
+  background: #FFFFFF !important;
+  border: 1px solid $navy !important;
+  border-radius: 8px !important;
+}
+
+.form-label {
+  font-family: $text-font;
+  color: #27374D;
+}
+
+.point-of-interest-category {
+  background: #FFFFFF !important;
+  border: 1px solid $navy !important;
+  border-radius: 8px !important;
+}
