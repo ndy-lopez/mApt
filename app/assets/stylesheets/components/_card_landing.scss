@@ -1,0 +1,27 @@
+.landing-image {
+  position: relative;
+  z-index: 1;
+}
+
+.card-product {
+  margin-top: -220px;
+  display: flex;
+  justify-content: space-around;
+  position: relative;
+  z-index: 2;
+}
+
+.card-info {
+  color: $navy;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  flex-direction: column;
+  padding: 20px;
+  height: 250px;
+  width: 250px;
+  overflow: hidden;
+  background: white;
+  box-shadow: rgba(9, 30, 66, 0.25) 0px 4px 8px -2px, rgba(9, 30, 66, 0.08) 0px 0px 0px 1px;
+}
