@@ -1,32 +1,50 @@
-<h1>Your Points of Interests</h1>
+<div class="container-address-book">
+  <div>
+  <div class= "poi-title">
+    <div class="poi-book" >
+      <i class="fa-solid fa-address-book fa-2xl" style="color: #11009e;"></i>
+    </div>
+    <h1 style="color: $navy;">My address book for </h1>
+  </div>
+    <%= simple_form_for(@poi) do |f| %>
+    <div>
+      <div class="form-inputs">
+        <%= f.input :name %>
+        <%= f.input :address %>
+        <%= f.input :category %>
+        <%# <p>Category</p>
+        <%= f.select :category, [["People"], ["Food"], ["School"], ["Work"]] %>
+      </div>
 
-<%= simple_form_for(@poi) do |f| %>
-
-  <div class="form-inputs">
-    <%= f.input :name %>
-    <%= f.input :address %>
-    <p>Category</p>
-    <%= f.select :category, [["People"], ["Food"], ["School"], ["Work"]] %>
+      <div class="form-actions">
+        <%= f.button :submit %>
+      </div>
+    </div>
+    <% end %>
   </div>
 
-  <div class="form-actions">
-    <%= f.button :submit %>
+  <div>
+    <% if current_user.maps.any? %>
+        <%= @pois.first.map.name %>
+        <% @pois.each do |poi| %>
+          <div class="card-poi">
+            <div class="poi-white">
+              <div>
+                <p><%= poi.name %></p>
+                <p class="poi-black"><%= poi.category %></p>
+              </div>
+              <div class="poi-edit-garbage" >
+                <i class="fa-solid fa-pen" style="color: #11009e;"></i>
+                <i class="fa-solid fa-trash-can" style="color: #11009e;"></i>
+              </div>
+            </div>
+             <div class="poi-purple">
+               <p><%= poi.address %></p>
+             </div>
+          </div>
+        <% end %>
+    <% else %>
+      <p>You have no maps</p>
+    <% end %>
   </div>
-<% end %>
-
-
-<ul>
-<%= @pois.first.map.name %>
-  <% @pois.each do |poi| %>
-    <li>
-      <%= poi.name %>
-    </li>
-     <li>
-      <%= poi.category %>
-    </li>
-    <li>
-      <%=  poi.address %>
-    </li>
-
-  <% end %>
-</ul>
+</div>
