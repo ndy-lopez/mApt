@@ -15,11 +15,7 @@ export default class extends Controller {
   async initMap() {
   // async function initMap() {
 
-
     const { Geocoder } = await google.maps.importLibrary("geocoding")
-
-
-
     const beachFlagImg = document.createElement("img")
 
     // START - Icon - In case the marker is an icon
