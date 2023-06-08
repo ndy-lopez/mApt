@@ -15,18 +15,22 @@
 <% end %>
 
 
-<ul>
-<%= @pois.first.map.name %>
-  <% @pois.each do |poi| %>
-    <li>
-      <%= poi.name %>
-    </li>
-     <li>
-      <%= poi.category %>
-    </li>
-    <li>
-      <%=  poi.address %>
-    </li>
+<% if current_user.maps.any? %>
+  <ul>
+    <%= @pois.first.map.name %>
+    <% @pois.each do |poi| %>
+      <li>
+        <%= poi.name %>
+      </li>
+      <li>
+        <%= poi.category %>
+      </li>
+      <li>
+        <%=  poi.address %>
+      </li>
 
-  <% end %>
-</ul>
+    <% end %>
+  </ul>
+<% else %>
+  <p>You have no maps</p>
+<% end %>
