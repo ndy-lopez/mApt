@@ -1,3 +1,21 @@
-<h1 class="text-center">mApt</h1>
-
-<div id="map"></div>
+<div class="landing-image">
+  <%= image_tag("landing.jpg", height: '550', width: '100%') %>
+  <button class="btn-get-started">Get Started</button>
+</div>
+<div class="card-product">
+  <div class="card-info">
+  <%= image_tag("home-button.png", height: '100', width: '100', class: 'mb-3') %>
+  <p>Discover the amenities nearby your potential home address</p>
+  </div>
+  <div class="card-info">
+  <%= image_tag("pin.png", height: '100', width: '100', class: 'mb-3') %>
+  <p>Save the addresses that matter the most for you!</p>
+  </div>
+  <div class="card-info">
+  <%= image_tag("gps.png", height: '100', width: '100', class: 'mb-3') %>
+  <p>See and compare distances
+all in one place</p>
+  </div>
+</div>
+<div id="map">
+</div>
