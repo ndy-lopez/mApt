@@ -9,6 +9,7 @@
   padding-left: 10px;
   margin-left: 20px;
   border-radius: 10px;
+  padding-top: 50px;
 }
 
 .poi-white {
@@ -63,19 +64,18 @@
 
 }
 
-.h1 {
-  color: $navy;
-}
+
 
 .poi-title {
   font-family:  $text-font;
   display: flex;
   justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  padding-top: 50px;
 
-}
-
-
-.poi-book {
-
+  h2 {
+    color: $navy;
+  }
 
 }
