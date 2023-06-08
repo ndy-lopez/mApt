@@ -26,15 +26,17 @@ class MapsController < ApplicationController
     if @map.save
       redirect_to @map, notice: "Map was successfully created."
     else
-      render :new, status: :unprocessable_entity
+      render :show, status: :unprocessable_entity
     end
 
-    @pot_locs = PotentialLocation.new(pot_locs_params)
+    @new_pot_loc = PotentialLocation.new(pot_locs_params)
 
-    if @pot_locs.save
+    if @new_pot_loc.save
       redirect_to @map, notice: "Potential Location was successfully created."
+      raise
     else
-      render :new, status: :unprocessable_entity
+      render :show, status: :unprocessable_entity
+      raise
     end
   end
 

@@ -1,11 +1,20 @@
 class PotentialLocationsController < ApplicationController
 
-  def index
+  def create
+    @map = Map.find(params[:map_id])
+    @new_pot_loc = PotentialLocation.new(pot_locs_params)
+    if @new_pot_loc.save
+      redirect_to map_path(@map), notice: "Potential Location was successfully created."
+    else
 
+      render 'maps/show', status: :unprocessable_entity
+    end
 
   end
 
-  def update_all
+  private
 
+  def pot_locs_params
+    params.require(:potential_location).permit(:name, :adress)
   end
 end
