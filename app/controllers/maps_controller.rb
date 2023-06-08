@@ -30,10 +30,8 @@ class MapsController < ApplicationController
 
     if @new_pot_loc.save
       redirect_to @map, notice: "Potential Location was successfully created."
-      raise
     else
       render :show, status: :unprocessable_entity
-      raise
     end
   end
 
