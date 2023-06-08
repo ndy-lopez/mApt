@@ -8,6 +8,8 @@ Rails.application.routes.draw do
 
   get 'my-maps', to: 'maps#my_maps', as: :my_maps
   get 'compare', to: 'maps#compare', as: :compare
-  resources :maps
+  resources :maps do
+    resources :potential_locations, only: [:create]
+  end
   resources :point_of_interests
 end
