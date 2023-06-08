@@ -4,20 +4,16 @@ class MapsController < ApplicationController
     @map = Map.find(params[:id])
     @pot_locs = @map.potential_locations
     @new_pot_loc = PotentialLocation.new
-    @address = "quebec"
+    @address = @map.city
   end
 
   def my_maps
     @maps = current_user.maps
-
+    @map = Map.new
+    @address = @map.city
   end
 
   def compare
-
-  end
-
-  def new
-    @map = Map.new
 
   end
 
@@ -25,7 +21,7 @@ class MapsController < ApplicationController
     @map = Map.new(map_params)
     @map.user = current_user
     if @map.save
-      redirect_to @map, notice: "Map was successfully created."
+      redirect_to map_path(@map), notice: "Map was successfully created."
     else
       render :show, status: :unprocessable_entity
     end
@@ -56,7 +52,7 @@ class MapsController < ApplicationController
   end
 
   def map_params
-    params.require(:map).permit(:name, :city)
+    params.require(:map).permit(:city)
   end
 
   def pot_locs_params
