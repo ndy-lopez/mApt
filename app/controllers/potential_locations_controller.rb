@@ -15,6 +15,6 @@ class PotentialLocationsController < ApplicationController
   private
 
   def pot_locs_params
-    params.require(:potential_location).permit(:name, :adress)
+    params.require(:potential_location).permit(:address)
   end
 end
