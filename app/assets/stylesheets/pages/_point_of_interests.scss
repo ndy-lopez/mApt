@@ -1,0 +1,40 @@
+.container-address-book {
+  display: flex;
+  justify-content: space-around;
+
+}
+
+.card-poi {
+  background-position: center;
+  padding-left: 10px;
+  margin-left: 20px;
+  border-radius: 10px;
+}
+
+.poi-white {
+  background-color: white;
+  color: $purple;
+  font-size: 14px;
+  font-family: $titles-font;
+  display: flex;
+  height: 40px;
+  width: 300px;
+  border-radius: 7px;
+
+  p {
+    margin-bottom: 0;
+  }
+}
+
+.poi-purple {
+  background-color: $light-blue;
+  color: white;
+  font-size: 14px;
+  font-family:  $titles-font;
+  display: flex;
+  align-items: start;
+  height: 30px;
+  width: 300px;
+  border-radius: 7px;
+
+}

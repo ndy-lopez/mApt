@@ -1,43 +1,40 @@
-<h1>My address book</h1>
+<div class="container-address-book">
+  <div>
+    <h1>My address book</h1>
 
-<%= simple_form_for(@poi) do |f| %>
+    <%= simple_form_for(@poi) do |f| %>
 
-  <div class="form-inputs">
-    <%= f.input :name %>
-    <%= f.input :address %>
-    <p>Category</p>
-    <%= f.select :category, [["People"], ["Food"], ["School"], ["Work"]] %>
-  </div>
+      <div class="form-inputs">
+        <%= f.input :name %>
+        <%= f.input :address %>
+        <p>Category</p>
+        <%= f.select :category, [["People"], ["Food"], ["School"], ["Work"]] %>
+      </div>
 
-  <div class="form-actions">
-    <%= f.button :submit %>
-  </div>
-<% end %>
-
-<% if current_user.maps.any? %>
-  <ul>
-    <%= @pois.first.map.name %>
-    <% @pois.each do |poi| %>
-      <li>
-        <%= poi.name %>
-      </li>
-      <li>
-        <%= poi.category %>
-      </li>
-      <li>
-        <%=  poi.address %>
-      </li>
+      <div class="form-actions">
+        <%= f.button :submit %>
+      </div>
     <% end %>
-  </ul>
-<% else %>
-  <p>You have no maps</p>
-<% end %>
+  </div>
 
-
-<div class ="card">
-<% PointOfInterest.all.each do |point| %>
-  <%= point.name %>
-  <%= point.category %>
-  <%= point.address %>
-<% end %>
+  <div>
+    <% if current_user.maps.any? %>
+        <%= @pois.first.map.name %>
+        <% @pois.each do |poi| %>
+          <div class="card-poi">
+            <div class="poi-white">
+             <div>
+                <p><%= poi.name %></p>
+                <p><%= poi.category %></p>
+              </div>
+            </div>
+             <div class="poi-purple">
+               <p><%= poi.address %></p>
+             </div>
+          </div>
+        <% end %>
+    <% else %>
+      <p>You have no maps</p>
+    <% end %>
+  </div>
 </div>
