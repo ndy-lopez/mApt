@@ -22,5 +22,4 @@ poi1 = PointOfInterest.create!(name: 'Tom', category: 'friend', address: '528 Vi
 
 pl1 = PotentialLocation.create!(name: 'bassin', address: '560 Victoria', latitude: '', longitude: '', map_id: map1.id)
 
-
 puts "Generating Users, maps, POIs and POLs..."
