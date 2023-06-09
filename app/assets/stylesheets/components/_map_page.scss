@@ -1,0 +1,19 @@
+
+.header-div {
+  font-family: $titles-font;
+  h1 {
+    color: $light-blue;
+  }
+  margin: 30px;
+}
+
+.map-toggle {
+  display: flex;
+  #map {
+    position: relative;
+    height: 900px;
+    width: 900px;
+    margin: 30px;
+    border-radius: 30px;
+  }
+}
