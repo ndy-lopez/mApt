@@ -1,0 +1,18 @@
+/* Target the markers inside the map container */
+#map .marker {
+  /* Marker styles */
+  width: 20px;
+  height: 20px;
+  background-color: red;
+  border-radius: 50%;
+  position: absolute;
+}
+
+/* Additional marker styles for different states */
+#map .marker.active {
+  background-color: green;
+}
+
+#map .marker.inactive {
+  background-color: gray;
+}
