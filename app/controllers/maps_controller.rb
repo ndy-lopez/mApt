@@ -11,7 +11,10 @@ class MapsController < ApplicationController
     @maps = current_user.maps
     @map = Map.new
     @address = @map.city
+    @search_results = Unsplash::Photo.search("cats")
   end
+
+
 
   def compare
 
