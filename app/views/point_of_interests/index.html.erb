@@ -22,26 +22,26 @@
 
   <div>
     <% if current_user.maps.any? %>
-        <%= @pois.first.map.name %>
-        <% @pois.each do |poi| %>
-          <div class="card-poi">
-            <div class="poi-white">
-              <div>
-                <p><%= poi.name %></p>
-                <p class="poi-black"><%= poi.category %></p>
+        <%= @pois.name %>
+          <% @pois.each do |poi| %>
+            <div class="card-poi">
+              <div class="poi-white">
+                <div>
+                  <p><%= poi.name %></p>
+                  <p class="poi-black"><%= poi.category %></p>
+                </div>
+                <div class="poi-edit-garbage" >
+                  <i class="fa-solid fa-pen" style="color: #11009e;"></i>
+                  <i class="fa-solid fa-trash-can" style="color: #11009e;"></i>
+                </div>
               </div>
-              <div class="poi-edit-garbage" >
-                <i class="fa-solid fa-pen" style="color: #11009e;"></i>
-                <i class="fa-solid fa-trash-can" style="color: #11009e;"></i>
+              <div class="poi-purple">
+                <p><%= poi.address %></p>
               </div>
             </div>
-             <div class="poi-purple">
-               <p><%= poi.address %></p>
-             </div>
-          </div>
-        <% end %>
+          <% end %>
     <% else %>
-      <p>You have no maps</p>
+      <p>You have no maps, yet</p>
     <% end %>
   </div>
 </div>

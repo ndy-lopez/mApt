@@ -3,6 +3,7 @@ class PointOfInterestsController < ApplicationController
   def index
     set_pois
     @poi = PointOfInterest.new
+
   end
 
   def create
@@ -11,7 +12,7 @@ class PointOfInterestsController < ApplicationController
     if @poi.save
       redirect_to point_of_interests_path, notice: "POI was successfully added."
     else
-      set_pois
+      # set_pois
       render :index, status: :unprocessable_entity
     end
   end
