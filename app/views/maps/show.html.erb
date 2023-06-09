@@ -1,34 +1,60 @@
-<h1>My Maps</h1>
+  <div class="header-div">
+  <%# create a logic to display city name that was created %>
+    <h1>Montreal</h1>
 
+    <h5>Where are you thinking of moving?</h5>
+    <%= simple_form_for([@map, @new_pot_loc]) do |f| %>
+      <div class="form-inputs">
+        <%= f.input :address %>
+      </div>
 
-<%= simple_form_for([@map, @new_pot_loc]) do |f| %>
-  <div class="form-inputs">
-    <%= f.input :address %>
+      <div class="form-actions">
+        <%= f.button :submit %>
+      </div>
+    <% end %>
+
+    <ul> </ul>
+    <div>
+    <%  @pot_locs.each do |loc| %>
+      <li><%= loc.address %></li>
+    <% end %>
+    </div>
+    </ul>
   </div>
-
-  <div class="form-actions">
-    <%= f.button :submit %>
-  </div>
-<% end %>
-
-<ul> </ul>
-<div>
-<%  @pot_locs.each do |loc| %>
-  <li><%= loc.address %></li>
-<% end %>
-</div>
-</ul>
 <%# radio buttons %>
 <%# Map goes here %>
 <%# link to POI page %>
 <%# link to compare page %>
+<div class="map-toggle">
+    <div
+      id="map"
+      data-controller="map"
+      data-map-address-value="<%= @address %>"
+      data-map-target="content"
+      >
+    </div>
 
-<div
-  id="map"
-  data-controller="map"
-  data-map-address-value="<%= @address %>"
-  data-map-target="content"
->
+    <div class="toggle-div">
+      <div class="toggle-card">
+          <p> Filter by Address Book:</p>
+          <% PointOfInterest::CATEGORIES.each do |category| %>
+            <div class="form-check form-switch">
+              <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault">
+              <label class="form-check-label" for="flexSwitchCheckDefault"> <%= category %></label>
+            </div>
+          <% end %>
+
+
+
+      <div class="toggle-card">
+        <p> Filter by amneties:</p>
+        <% PointOfInterest::CATEGORIES.each do |category| %>
+        <div class="form-check form-switch">
+          <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault">
+          <label class="form-check-label" for="flexSwitchCheckDefault"> <%= category %></label>
+        </div>
+       <% end %>
+  </div>
 </div>
 
 <%# THIS SCRIPT BELOW IS TEMPORARILY PLACED IN SHOW.HTML.ERB - DO NOT DELETE %>
