@@ -43,18 +43,20 @@
               <label class="form-check-label" for="flexSwitchCheckDefault"> <%= category %></label>
             </div>
           <% end %>
+      </div>
 
 
 
       <div class="toggle-card">
-        <p> Filter by amneties:</p>
+        <p> Filter by Amenities:</p>
         <% PointOfInterest::CATEGORIES.each do |category| %>
         <div class="form-check form-switch">
           <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault">
           <label class="form-check-label" for="flexSwitchCheckDefault"> <%= category %></label>
         </div>
        <% end %>
-  </div>
+      </div>
+    </div>
 </div>
 
 <%# THIS SCRIPT BELOW IS TEMPORARILY PLACED IN SHOW.HTML.ERB - DO NOT DELETE %>

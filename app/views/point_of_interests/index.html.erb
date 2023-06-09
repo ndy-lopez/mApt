@@ -2,14 +2,14 @@
   <div>
   <div class= "poi-title">
       <i class="fa-solid fa-address-book fa-2xl" style="color: #11009e;"></i>
-    <h2>My address book </h2>
+    <h2>My Address Book </h2>
   </div>
     <%= simple_form_for(@poi) do |f| %>
     <div>
       <div class="form-inputs">
         <%= f.input :name %>
         <%= f.input :address %>
-        <%= f.input :category, collection: ["People", "Food", "School", "Work"]   %>
+        <%= f.input :category, collection: ["Friend/Family", "Restaurants", "Education", "Work"]   %>
 
       </div>
 
@@ -22,26 +22,25 @@
 
   <div>
     <% if current_user.maps.any? %>
-        <%= @pois.name %>
-          <% @pois.each do |poi| %>
-            <div class="card-poi">
-              <div class="poi-white">
-                <div>
-                  <p><%= poi.name %></p>
-                  <p class="poi-black"><%= poi.category %></p>
-                </div>
-                <div class="poi-edit-garbage" >
-                  <i class="fa-solid fa-pen" style="color: #11009e;"></i>
-                  <i class="fa-solid fa-trash-can" style="color: #11009e;"></i>
-                </div>
+        <% @pois.each do |poi| %>
+          <div class="card-poi">
+            <div class="poi-white">
+              <div>
+                <p><%= poi.name.capitalize %></p>
+                <p class="poi-black"><%= poi.category.capitalize %></p>
               </div>
-              <div class="poi-purple">
-                <p><%= poi.address %></p>
+              <div class="poi-edit-garbage" >
+                <i class="fa-solid fa-pen" style="color: #11009e;"></i>
+                <i class="fa-solid fa-trash-can" style="color: #11009e;"></i>
               </div>
             </div>
-          <% end %>
+             <div class="poi-purple">
+               <p><%= poi.address %></p>
+             </div>
+          </div>
+        <% end %>
     <% else %>
-      <p>You have no maps, yet</p>
+      <p>You have no maps</p>
     <% end %>
   </div>
 </div>
