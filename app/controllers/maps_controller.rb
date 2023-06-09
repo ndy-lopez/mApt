@@ -4,6 +4,15 @@ class MapsController < ApplicationController
     @map = Map.find(params[:id])
     @pot_locs = @map.potential_locations
     @new_pot_loc = PotentialLocation.new
+
+    # TODO: (Fred) Refactor this line, as there is a much cleaner way of doing things.
+    @markers = @pot_locs.select { |pot_loc| pot_loc.latitude.present? && pot_loc.longitude.present? }.map do |pot_loc|
+      {
+        lat: pot_loc.latitude,
+        lng: pot_loc.longitude
+      }
+    end
+
     @address = @map.city
   end
 
