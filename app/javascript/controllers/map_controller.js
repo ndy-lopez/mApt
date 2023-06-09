@@ -39,7 +39,7 @@ export default class extends Controller {
       const position = result[0].geometry.location
 
       const map = new Map(this.contentTarget, {
-        zoom: 15,
+        zoom: 12,
         center: position,
         mapId: "DEMO_MAP_ID",
       });
@@ -58,5 +58,5 @@ export default class extends Controller {
     const geo = new Geocoder
     geo.geocode({ address: this.addressValue }, set_map)
   }
-
+  // console.log(response)
 }
