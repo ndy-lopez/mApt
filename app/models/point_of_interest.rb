@@ -8,4 +8,5 @@ class PointOfInterest < ApplicationRecord
   CATEGORIES = ["Friend/Family", "Restaurants", "Education", "Work"]
   validates :category, inclusion: { in: CATEGORIES }
 
+
 end
