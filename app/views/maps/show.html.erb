@@ -1,6 +1,6 @@
   <div class="header-div">
   <%# create a logic to display city name that was created %>
-    <h1>Montreal</h1>
+    <h1><strong><%= @map.city %></strong></h1>
 
     <h5>Where are you thinking of moving?</h5>
     <%= simple_form_for([@map, @new_pot_loc]) do |f| %>
@@ -30,6 +30,7 @@
       id="map"
       data-controller="map"
       data-map-address-value="<%= @address %>"
+      data-map-markers-value="<%= @markers.to_json %>"
       data-map-target="content"
       >
     </div>
@@ -44,17 +45,6 @@
             </div>
           <% end %>
       </div>
-
-
-
-
-<div
-  id="map"
-  data-controller="map"
-  data-map-markers-value="<%= @markers.to_json %>"
-  data-map-address-value="<%= @address %>"
-  data-map-target="content"
->
 
       <div class="toggle-card">
         <p> Filter by Amenities:</p>
