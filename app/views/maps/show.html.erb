@@ -47,6 +47,15 @@
 
 
 
+
+<div
+  id="map"
+  data-controller="map"
+  data-map-markers-value="<%= @markers.to_json %>"
+  data-map-address-value="<%= @address %>"
+  data-map-target="content"
+>
+
       <div class="toggle-card">
         <p> Filter by Amenities:</p>
         <% PointOfInterest::CATEGORIES.each do |category| %>
@@ -57,6 +66,7 @@
        <% end %>
       </div>
     </div>
+
 </div>
 
 <%# THIS SCRIPT BELOW IS TEMPORARILY PLACED IN SHOW.HTML.ERB - DO NOT DELETE %>
