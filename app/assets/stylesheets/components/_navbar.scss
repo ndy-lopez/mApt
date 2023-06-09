@@ -3,10 +3,12 @@ h1 {
 }
 
 .container-fluid {
+  height: 80px;
   padding-bottom: 0px;
   padding-left: 0;
   margin-bottom: 0px;
 }
+
 
 .navbar-mapt {
   font-family: $text-font;
@@ -31,13 +33,16 @@ h1 {
   margin-bottom: 0;
 }
 
+.navbar-img {
+  height: 100%;
+}
 .navbar-mapt .navbar-brand img {
   display: block;
   padding: 0;
   margin: 0;
   width: 170px;
   height: 100%;
-  }
+}
 
 
 .navbar-nav .nav-item .nav-link {

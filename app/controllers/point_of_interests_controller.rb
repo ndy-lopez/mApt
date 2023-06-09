@@ -3,6 +3,7 @@ class PointOfInterestsController < ApplicationController
   def index
     set_pois
     @poi = PointOfInterest.new
+
   end
 
   def create
@@ -11,9 +12,19 @@ class PointOfInterestsController < ApplicationController
     if @poi.save
       redirect_to point_of_interests_path, notice: "POI was successfully added."
     else
-      set_pois
+      # set_pois
       render :index, status: :unprocessable_entity
     end
+  end
+
+  def update
+
+  end
+
+  def destroy
+    @poi = PointOfInterest.find(params[:id])
+    @poi.destroy
+    redirect_to point_of_interests_path, notice: "Point of Interest was successfully destroyed."
   end
 
   private
@@ -36,4 +47,6 @@ class PointOfInterestsController < ApplicationController
   def poi_params
     params.require(:point_of_interest).permit(:name, :address, :category)
   end
+
+
 end
