@@ -17,6 +17,16 @@ class PointOfInterestsController < ApplicationController
     end
   end
 
+  def update
+
+  end
+
+  def destroy
+    @poi = PointOfInterest.find(params[:id])
+    @poi.destroy
+    redirect_to point_of_interests_path, notice: "Point of Interest was successfully destroyed."
+  end
+
   private
 
   def set_pois
@@ -37,4 +47,6 @@ class PointOfInterestsController < ApplicationController
   def poi_params
     params.require(:point_of_interest).permit(:name, :address, :category)
   end
+
+
 end
