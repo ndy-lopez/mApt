@@ -40,3 +40,24 @@ $font-family-sans-serif: $body-font;
   border: 1px solid $navy !important;
   border-radius: 8px !important;
 }
+
+.btn {
+  background-color: $navy !important;
+  color: $white !important;
+  width: 200px !important;
+  height: 40px !important;
+  border-radius: 10px;
+  font-family: $text-font !important;
+
+}
+
+
+.form-check-input {
+
+
+}
+
+.form-check-input:checked {
+  background-color: $light-blue !important;
+  border-color: $light-blue !important;
+}
