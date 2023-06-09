@@ -2,11 +2,32 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  flex-direction: row;
-  gap: 5px;
 }
 
-.form-inputs {
+.city-form-inputs {
   margin-top: 10px;
   width: 400px;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+.city-form-inputs input::placeholder {
+  color: gray;
+}
+
+.city-form-inputs input {
+}
+
+.card-item {
+  display: flex;
+  flex-direction: column;
+  margin: 10px;
+}
+
+.card-content {
+  text-align: center;
+  max-width: 300px;
+}
+
+.card-content p {
+  margin: 5px 0;
 }
