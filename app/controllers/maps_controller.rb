@@ -13,8 +13,6 @@ class MapsController < ApplicationController
         address: pot_loc.address
       }
     end
-
-    @address = @map.city
   end
 
   def my_maps
@@ -34,15 +32,7 @@ class MapsController < ApplicationController
     @map = Map.new(map_params)
     @map.user = current_user
     if @map.save
-      redirect_to map_path(set_map), notice: "Map was successfully created."
-    else
-      render :show, status: :unprocessable_entity
-    end
-
-    @new_pot_loc = PotentialLocation.new(pot_locs_params)
-
-    if @new_pot_loc.save
-      redirect_to @map, notice: "Potential Location was successfully created."
+      redirect_to map_path(@map), notice: "Map was successfully created."
     else
       render :show, status: :unprocessable_entity
     end
@@ -63,7 +53,7 @@ class MapsController < ApplicationController
   end
 
   def map_params
-    params.require(:map).permit(:city)
+    params.require(:map).permit(:city, :latitude, :longitude, :google_place_id)
   end
 
   def pot_locs_params

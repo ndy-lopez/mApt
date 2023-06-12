@@ -4,19 +4,19 @@ import { Controller } from "@hotwired/stimulus"
 export default class extends Controller {
   static targets = ["content"]
   static values = {
-    address: String,
+    cityInfo: Object,
     markers: Array
   }
 
   connect() {
-    // console.log(this.markersValue)
-    this.initMap()
+    this.#initMap()
   }
 
-  async initMap() {
+  // INFO: this was the old initial function for the map, should no longer be needed but keeping in case
+  async initMapOld() {
   // async function initMap() {
 
-    const { Geocoder } = await google.maps.importLibrary("geocoding")
+    // const { Geocoder } = await google.maps.importLibrary("geocoding")
 
     const {PinElement} = await google.maps.importLibrary("marker")
 
@@ -35,45 +35,29 @@ export default class extends Controller {
       scale: 1.5,
     });
     // END - PinElement
-
-    const set_map = (result) => {
-      const position = result[0].geometry.location
-
-      const map = new Map(this.contentTarget, {
-        zoom: 12,
-        center: position,
-        mapId: "DEMO_MAP_ID",
-      });
-
-      // The marker
-      const marker = new AdvancedMarkerElement({
-        map: map,
-        position: position,
-        title: result[0].formatted_address,
-        content: mAptPin.element, // the marker is a pin
-        // content: beachFlagImg, // OR the marker is an icon
-      });
-    }
     // Request needed libraries.
-    const geo = new Geocoder
-    geo.geocode({ address: this.addressValue }, result => this.setMap(result))
+    // const geo = new Geocoder
+    // geo.geocode({ address: this.addressValue }, result => this.setMap(result))
+    this.setMap(this.cityInfoValue.coordinates)
   }
 
   async setMap(result) {
+
+
+  async #initMap() {
     const { Map } = await google.maps.importLibrary("maps")
 
     // const { AdvancedMarkerElement } = await google.maps.importLibrary("marker")
 
-    const position = result[0].geometry.location
+    // const position = coordinates[0].geometry.location
 
     const map = new Map(this.contentTarget, {
       zoom: 12,
-      center: position,
+      center: this.cityInfoValue.coordinates,
       mapId: "DEMO_MAP_ID",
     });
 
     this.markersValue.forEach((marker) => {
-      console.log(marker)
       this.#addMarkerToMap(marker, map)
     })
     // START - Icon - In case the marker is an icon
