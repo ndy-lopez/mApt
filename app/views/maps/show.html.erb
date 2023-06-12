@@ -13,13 +13,13 @@
       </div>
     <% end %>
 
-    <ul> </ul>
-    <div>
-    <%  @pot_locs.each do |loc| %>
-      <li><%= loc.address %></li>
-    <% end %>
-    </div>
-    </ul>
+    <ol>
+      <div>
+        <%  @pot_locs.each do |loc| %>
+        <li><%= loc.address %></li>
+        <% end %>
+      </div>
+    </ol>
   </div>
 <%# radio buttons %>
 <%# Map goes here %>

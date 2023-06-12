@@ -20,11 +20,10 @@ export default class extends Controller {
 
     const {PinElement} = await google.maps.importLibrary("marker")
 
-
     const beachFlagImg = document.createElement("img");
 
     // START - Icon - In case the marker is an icon
-    beachFlagImg.src = "https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png";
+    // beachFlagImg.src = "https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png";
     // END - Icon
 
     // START - PinElement - In case the marker is a pin
@@ -60,8 +59,6 @@ export default class extends Controller {
     geo.geocode({ address: this.addressValue }, result => this.setMap(result))
   }
 
-
-
   async setMap(result) {
     const { Map } = await google.maps.importLibrary("maps")
 
@@ -95,12 +92,10 @@ export default class extends Controller {
       scale: 1.5,
     })
 
-    console.log(map, marker)
-
     new AdvancedMarkerElement({
       map: map,
       position: marker,
-      title: "Hello world",
+      title: `Potential location : ${marker.address} `,
       content: mAptPin.element, // the marker is a pin
       // content: beachFlagImg, // OR the marker is an icon
     });
