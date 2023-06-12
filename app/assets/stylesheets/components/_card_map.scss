@@ -14,18 +14,6 @@
   overflow: hidden;
 }
 
-.image-container {
-  position: relative;
-  width: 100%;
-  height: 100%;
-}
-
-.card-image {
-  width: 100%;
-  height: 100%;
-  object-fit: contain; /* Fit the image without stretching */
-  object-position: center; /* Center the image within the container */
-}
 
 .card-category-2 {
   height: 250px;
@@ -42,16 +30,8 @@
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
 }
 
-.card-item {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-
 .card-category-3 {
   display: flex;
-  flex-wrap:nowrap;
   justify-content: center;
   align-items: center;
   color: $light-blue;
@@ -61,4 +41,32 @@
   border-radius: 5px;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   border-bottom: solid 1px;
+}
+
+.card-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center; /* Optionally adjust the alignment as needed */
+}
+
+.card-item {
+  flex-basis: 33.33%; /* Adjust the flex-basis value based on the desired number of cards per row */
+  padding: 10px; /* Add padding for spacing between cards */
+  box-sizing: border-box; /* Ensure padding is included in the card's width */
+}
+
+
+.card-content {
+  flex-basis: 25%; /* Adjust this value based on the desired number of cards per row */
+  text-align: center;
+}
+
+.image-container {
+  flex-basis: 100%;
+  padding: 10px;
+}
+
+.card-image {
+  max-width: 100%;
+  height: auto;
 }
