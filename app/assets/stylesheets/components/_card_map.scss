@@ -46,27 +46,28 @@
 .card-list {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center; /* Optionally adjust the alignment as needed */
+  justify-content: center;
+  align-items: flex-start; /* Adjust the alignment to flex-start */
 }
 
 .card-item {
-  flex-basis: 33.33%; /* Adjust the flex-basis value based on the desired number of cards per row */
-  padding: 10px; /* Add padding for spacing between cards */
-  box-sizing: border-box; /* Ensure padding is included in the card's width */
+  flex-basis: 33.33%;
+  padding: 10px;
+  box-sizing: border-box;
+  display: flex; /* Add display:flex to align items vertically */
+  flex-direction: column; /* Set flex-direction to column */
 }
 
-
 .card-content {
-  flex-basis: 25%; /* Adjust this value based on the desired number of cards per row */
-  text-align: center;
+  flex-grow: 1;
 }
 
 .image-container {
-  flex-basis: 100%;
-  padding: 10px;
+  height: 100%;
 }
 
 .card-image {
-  max-width: 100%;
-  height: auto;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }

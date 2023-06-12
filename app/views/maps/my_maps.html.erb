@@ -29,11 +29,11 @@
     <% @maps.each do |map| %>
       <li class="card-item">
         <div class="card-content">
-          <p><%= map.city.capitalize %></p>
+          <p><%= map.city.titleize %></p>
           <div class="image-container">
             <% unsplash_photo = Unsplash::Photo.search(map.city).first %>
             <% if unsplash_photo %>
-              <%= image_tag(unsplash_photo.urls.regular, class: "card-image", height: '800', width: '800') %>
+              <%= image_tag(unsplash_photo.urls.regular, class: "card-image rounded") %>
             <% else %>
               <p>No image found for <%= map.city %>.</p>
             <% end %>
