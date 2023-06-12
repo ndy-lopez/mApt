@@ -41,7 +41,7 @@ export default class extends Controller {
     this.setMap(this.cityInfoValue.coordinates)
   }
 
-  async setMap(result) {
+  // async setMap(result) {
 
 
   async #initMap() {

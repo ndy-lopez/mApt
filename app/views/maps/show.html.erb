@@ -1,6 +1,6 @@
   <div class="header-div">
   <%# create a logic to display city name that was created %>
-    <h1><strong><%= @map.city %></strong></h1>
+    <h1><strong><%= @map.city.titleize %></strong></h1>
 
     <h5>Where are you thinking of moving?</h5>
     <%= simple_form_for([@map, @new_pot_loc], html: { data: { controller: 'autocomplete' } }) do |f| %>
