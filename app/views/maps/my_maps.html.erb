@@ -6,22 +6,20 @@
 
 
 
-<div data-controller='autocomplete'>
-  <%= simple_form_for(@map) do |f| %>
+
+  <%= simple_form_for(@map, html: { data: { controller: 'autocomplete' } }) do |f| %>
     <div class="city-form">
 
       <div class="form-inputs">
         <%= f.input :city, label: false, input_html: { data: { autocomplete_target: 'searchField' } } %>
       </div>
-      <%= f.input :latitude, label: false, as: :hidden, input_html: { data: { autocomplete_target: 'latitude' } } %>
-      <%= f.input :longitude, label: false, as: :hidden, input_html: { data: { autocomplete_target: 'longitude' } } %>
-      <%= f.input :google_place_id, label: false, as: :hidden, input_html: { data: { autocomplete_target: 'googlePlaceId' } } %>
+      <%= render 'shared/form_hidden_google_info', f: %>
       <div class="">
         <%= f.submit "Add a city", class: "btn-add-city" %>
       </div>
     </div>
   <% end %>
-</div>
+
 
 
 

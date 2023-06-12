@@ -29,7 +29,6 @@ export default class extends Controller {
   };
 
   async #setCoordinates(result) {
-    console.log(this.googlePlaceIdTarget)
     this.googlePlaceIdTarget.value = result.place_id;
     this.latitudeTarget.value = result.geometry.location.lat();
     this.longitudeTarget.value = result.geometry.location.lng();
