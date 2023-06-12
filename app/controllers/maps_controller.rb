@@ -11,18 +11,18 @@ class MapsController < ApplicationController
       {
         lat: pot_loc.latitude,
         lng: pot_loc.longitude,
-
         place_id: pot_loc.google_place_id,
         name: pot_loc.name,
-        type: "potential location"
+        type: "Potential location"
       }
     end
 
     @point_of_interests_ids = @map.point_of_interests.map(&:google_place_id)
 
     @pois.each do |poi|
-      @markers.push({ lat: poi.latitude, lng: poi.longitude, name: poi.name, type: "point of interest" })
+      @markers.push({ lat: poi.latitude, lng: poi.longitude, name: poi.name, type: "Point of interest" })
     end
+
 
   end
 
