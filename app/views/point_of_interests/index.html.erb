@@ -4,12 +4,13 @@
       <i class="fa-solid fa-address-book fa-2xl" style="color: #11009e;"></i>
     <h2>My Address Book </h2>
   </div>
-    <%= simple_form_for(@poi) do |f| %>
+    <%= simple_form_for(@poi, html: { data: { controller: 'autocomplete' } }) do |f| %>
     <div>
       <div class="form-inputs">
         <%= f.input :name %>
-        <%= f.input :address %>
+        <%= f.input :address, label: false, input_html: { data: { autocomplete_target: 'searchField' } }%>
         <%= f.input :category, collection: ["Friends/Family", "Education", "Work"]   %>
+        <%= render 'shared/form_hidden_google_info', f: %>
 
       </div>
 
@@ -19,6 +20,7 @@
     </div>
     <% end %>
   </div>
+
 
   <div>
     <% if current_user.maps.any? %>
