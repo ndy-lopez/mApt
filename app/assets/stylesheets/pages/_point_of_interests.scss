@@ -1,15 +1,17 @@
 .container-address-book {
   display: flex;
   justify-content: space-around;
-
 }
 
 .card-poi {
-  background-position: center;
-  padding-left: 10px;
+
   margin-left: 20px;
   border-radius: 10px;
-  padding-top: 50px;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  margin-top: 50px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
 }
 
 .poi-white {
@@ -46,24 +48,14 @@
   p {
     margin-top: 15px;
   }
-
-
-
 }
 .poi-black {
   color :black;
-
 }
 
-.poi-edit-garbage {
+.poi-garbage {
   justify-content: space-between;
-
 }
-
-.poi-input {
-
-}
-
 
 
 .poi-title {
@@ -77,5 +69,4 @@
   h2 {
     color: $navy;
   }
-
 }
