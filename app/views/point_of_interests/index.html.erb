@@ -7,8 +7,8 @@
     <%= simple_form_for(@poi) do |f| %>
     <div>
       <div class="form-inputs">
-        <%= f.input :name %>
-        <%= f.input :address %>
+        <%= f.input :name, placeholder: "Tom's house"  %>
+        <%= f.input :address, placeholder: "2543 Rosemont St" %>
         <%= f.input :category, collection: ["Friends/Family", "Education", "Work"]   %>
 
       </div>
@@ -29,13 +29,14 @@
                 <p><%= poi.name.capitalize %></p>
                 <p class="poi-black"><%= poi.category.capitalize %></p>
               </div>
-              <div class="poi-edit-garbage" >
-                <i class="fa-solid fa-pen" style="color: #11009e;"></i>
-                <i class="fa-solid fa-trash-can" style="color: #11009e;"></i>
+              <div class="poi-garbage" >
+                <%= link_to point_of_interest_path(poi), data: {turbo_method: :delete, turbo_confirm: "Delete #{poi.name}?"} do %>
+                    <i class="fa-solid fa-trash-can" style="color: #11009e;"></i>
+                <% end %>
               </div>
             </div>
              <div class="poi-purple">
-               <p><%= poi.address %></p>
+               <p><%= poi.address.capitalize %></p>
              </div>
           </div>
         <% end %>
