@@ -5,7 +5,8 @@ export default class extends Controller {
   static targets = ["content"]
   static values = {
     cityInfo: Object,
-    markers: Array
+    markers: Array,
+    poiIds: Array
   }
 
   connect() {
@@ -60,12 +61,14 @@ export default class extends Controller {
     this.markersValue.forEach((marker) => {
       this.#addMarkerToMap(marker, map)
     })
+    this.matrix()
     // START - Icon - In case the marker is an icon
     // beachFlagImg.src = "https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png";
     // END - Icon
   }
     // async #addMarkerToMap(marker, map) {
   async #addMarkerToMap(marker, map) {
+
       const { PinElement, AdvancedMarkerElement } = await google.maps.importLibrary("marker")
 
       const mAptPin = new PinElement({
@@ -84,5 +87,35 @@ export default class extends Controller {
         content: mAptPin.element, // the marker is a pin
         // content: beachFlagImg, // OR the marker is an icon
       });
+
   };
+
+  async matrix() {
+    // const { DistanceMatrixService } = await google.maps.importLibrary("DistanceMatrix")
+    console.log(this.poiIdsValue);
+    var origin1 = new google.maps.LatLng(45.4805964, -73.6075075);
+    var origin2 = 'Greenwich, England';
+    var destinationA = 'Stockholm, Sweden';
+    var destinationB = new google.maps.LatLng(50.087692, 14.421150);
+
+    const service = new google.maps.DistanceMatrixService();
+    // console.log(service)
+    service.getDistanceMatrix(
+      {
+        origins: [origin1, origin2],
+        destinations: [destinationA, destinationB],
+        travelMode: 'DRIVING',
+        // transitOptions: TransitOptions,
+        // drivingOptions: DrivingOptions,
+        unitSystem: google.maps.UnitSystem.METRIC,
+        // avoidHighways: Boolean,
+        // avoidTolls: Boolean,
+      }, this.callback);
+
+
+    }
+    async callback(response, status) {
+      // console.log(response);
+    }
+
 };
