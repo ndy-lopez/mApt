@@ -10,9 +10,12 @@ class MapsController < ApplicationController
       {
         lat: pot_loc.latitude,
         lng: pot_loc.longitude,
+        place_id: pot_loc.google_place_id,
         address: pot_loc.address
       }
     end
+
+    @point_of_interests_ids = @map.point_of_interests.map(&:google_place_id)
   end
 
   def my_maps
