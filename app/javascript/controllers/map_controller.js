@@ -12,6 +12,7 @@ export default class extends Controller {
     this.#initMap()
   }
 
+  // INFO: this was the old initial function for the map, should no longer be needed but keeping in case
   async initMapOld() {
   // async function initMap() {
 

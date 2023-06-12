@@ -52,28 +52,5 @@
     // Use the 'v' parameter to indicate the version to use (weekly, beta, alpha, etc.).
     // Add other bootstrap parameters as needed, using camel case.
   });
-        const callAutocomplete = async () => {
-            var autocomplete;
-            const { Place } = await google.maps.importLibrary("places");
-            var searchInput = 'myPOI';
-            autocomplete = new google.maps.places.Autocomplete((document.getElementById(searchInput)), {
-                types: ['geocode'],
-                fields: ['geometry', 'name', 'place_id']
-
-            });
-
-            google.maps.event.addListener(autocomplete, 'place_changed', function () {
-                var near_place = autocomplete.getPlace();
-                console.log(near_place);
-                var place_id = near_place.place_id;
-                console.log(place_id);
-                var latitude = near_place.geometry.location.lat();
-                console.log(latitude);
-                var longitude = near_place.geometry.location.lng();
-                console.log(longitude);
-            });
-
-        };
-        callAutocomplete();
 
 </script>
