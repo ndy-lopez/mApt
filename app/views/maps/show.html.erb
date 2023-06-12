@@ -13,14 +13,14 @@
       </div>
     <% end %>
 
+    <ol>
+      <div>
+        <%  @pot_locs.each do |loc| %>
+        <li><%= loc.address %></li>
+        <% end %>
+      </div>
+    </ol>
 
-    <ul> </ul>
-    <div>
-    <%  @pot_locs.each do |loc| %>
-      <li><%= loc.address %></li>
-    <% end %>
-    </div>
-    </ul>
   </div>
 
 <div class="map-toggle">

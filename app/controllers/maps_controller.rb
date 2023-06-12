@@ -9,7 +9,8 @@ class MapsController < ApplicationController
     @markers = @pot_locs.select { |pot_loc| pot_loc.latitude.present? && pot_loc.longitude.present? }.map do |pot_loc|
       {
         lat: pot_loc.latitude,
-        lng: pot_loc.longitude
+        lng: pot_loc.longitude,
+        address: pot_loc.address
       }
     end
   end
