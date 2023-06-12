@@ -1,46 +1,45 @@
 <div class="container-address-book">
   <div>
-    <div class= "poi-title">
-        <i class="fa-solid fa-address-book fa-2xl" style="color: #11009e;"></i>
-        <h2>My Address Book </h2>
-    </div>
+  <div class= "poi-title">
+      <i class="fa-solid fa-address-book fa-2xl" style="color: #11009e;"></i>
+    <h2>My Address Book </h2>
+  </div>
     <%= simple_form_for(@poi) do |f| %>
-      <div>
-        <div class="form-inputs">
-          <%= f.input :name, placeholder: "Tom's house " %>
-          <%= f.input :address, placeholder: "2543 Rosemont St"%>
-          <%= f.input :category, collection: ["Friends/Family", "Education", "Work"]  %>
+    <div>
+      <div class="form-inputs">
+        <%= f.input :name, placeholder: "Tom's house"  %>
+        <%= f.input :address, placeholder: "2543 Rosemont St" %>
+        <%= f.input :category, collection: ["Friends/Family", "Education", "Work"]   %>
 
-        </div>
-
-        <div class="form-actions">
-          <%= f.button:submit %>
-        </div>
       </div>
+
+      <div class="form-actions">
+        <%= f.button:submit %>
+      </div>
+    </div>
     <% end %>
   </div>
 
-  <div class="cards">
+  <div>
     <% if current_user.maps.any? %>
-      <% @pois.each do |poi| %>
-        <div class="card-poi">
-          <div class="poi-white">
-            <div>
-              <p><%= poi.name.capitalize %></p>
-              <p class="poi-black"><%= poi.category.capitalize %></p>
+        <% @pois.each do |poi| %>
+          <div class="card-poi">
+            <div class="poi-white">
+              <div>
+                <p><%= poi.name.capitalize %></p>
+                <p class="poi-black"><%= poi.category.capitalize %></p>
+              </div>
+              <div class="poi-garbage" >
+                <%= link_to point_of_interest_path(poi), data: {turbo_method: :delete, turbo_confirm: "Delete #{poi.name}?"} do %>
+                    <i class="fa-solid fa-trash-can" style="color: #11009e;"></i>
+                <% end %>
+              </div>
             </div>
-            <div class="poi-garbage">
-              <%= link_to point_of_interest_path(poi), data: {turbo_method: :delete, turbo_confirm: "Delete #{poi.name}?"} do %>
-                <i class="fa-solid fa-trash-can" style="color: #11009e;"></i>
-              <% end %>
-            </div>
+             <div class="poi-purple">
+               <p><%= poi.address.capitalize %></p>
+             </div>
           </div>
-            <div class="poi-purple">
-              <p><%= poi.address.capitalize %></p>
-            </div>
-          </div>
-        </div>
-      <% end %>
+        <% end %>
     <% else %>
       <p>You have no maps</p>
     <% end %>
