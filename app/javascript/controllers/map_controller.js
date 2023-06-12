@@ -41,7 +41,7 @@ export default class extends Controller {
     this.setMap(this.cityInfoValue.coordinates)
   }
 
-  async setMap(result) {
+  // async setMap(result) {
 
 
   async #initMap() {
@@ -83,6 +83,5 @@ export default class extends Controller {
       content: mAptPin.element, // the marker is a pin
       // content: beachFlagImg, // OR the marker is an icon
     });
-  }
-
-}
+  };
+};
