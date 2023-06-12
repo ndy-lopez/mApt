@@ -14,18 +14,6 @@
   overflow: hidden;
 }
 
-.image-container {
-  position: relative;
-  width: 100%;
-  height: 100%;
-}
-
-.card-image {
-  width: 100%;
-  height: 100%;
-  object-fit: contain; /* Fit the image without stretching */
-  object-position: center; /* Center the image within the container */
-}
 
 .card-category-2 {
   height: 250px;
@@ -42,16 +30,8 @@
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
 }
 
-.card-item {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-
 .card-category-3 {
   display: flex;
-  flex-wrap:nowrap;
   justify-content: center;
   align-items: center;
   color: $light-blue;
@@ -61,4 +41,33 @@
   border-radius: 5px;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   border-bottom: solid 1px;
+}
+
+.card-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-start; /* Adjust the alignment to flex-start */
+}
+
+.card-item {
+  flex-basis: 33.33%;
+  padding: 10px;
+  box-sizing: border-box;
+  display: flex; /* Add display:flex to align items vertically */
+  flex-direction: column; /* Set flex-direction to column */
+}
+
+.card-content {
+  flex-grow: 1;
+}
+
+.image-container {
+  height: 100%;
+}
+
+.card-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
