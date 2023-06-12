@@ -30,7 +30,6 @@ class MapsController < ApplicationController
     @maps = current_user.maps
     @map = Map.new
     @address = @map.city
-    @search_results = Unsplash::Photo.search("cats")
   end
 
 
@@ -42,12 +41,16 @@ class MapsController < ApplicationController
   def create
     @map = Map.new(map_params)
     @map.user = current_user
+
     if @map.save
       redirect_to map_path(@map), notice: "Map was successfully created."
     else
-      render :show, status: :unprocessable_entity
+      @maps = current_user.maps
+      flash[:alert] = "Please select a location"
+      redirect_to action: :my_maps
     end
   end
+
 
   def edit
 
