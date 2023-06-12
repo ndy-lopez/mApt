@@ -6,17 +6,19 @@
 
 
 
-
+<div data-controller='autocomplete'>
   <%= simple_form_for(@map) do |f| %>
-<div class="city-form">
+    <div class="city-form">
 
-    <div class="form-inputs">
-      <%= f.input :city, label: false, input_html: {id: 'myAddress'}%>
-    </div>
-
-    <div class="">
-      <%= f.submit "Add a city", class: "btn-add-city" %>
-    </div>
+      <div class="form-inputs">
+        <%= f.input :city, label: false, input_html: { data: { autocomplete_target: 'searchField' } } %>
+      </div>
+      <%= f.input :latitude, label: false, as: :hidden, input_html: { data: { autocomplete_target: 'latitude' } } %>
+      <%= f.input :longitude, label: false, as: :hidden, input_html: { data: { autocomplete_target: 'longitude' } } %>
+      <%= f.input :google_place_id, label: false, as: :hidden, input_html: { data: { autocomplete_target: 'googlePlaceId' } } %>
+      <div class="">
+        <%= f.submit "Add a city", class: "btn-add-city" %>
+      </div>
     </div>
   <% end %>
 </div>
@@ -52,22 +54,6 @@
     // Use the 'v' parameter to indicate the version to use (weekly, beta, alpha, etc.).
     // Add other bootstrap parameters as needed, using camel case.
   });
-        const callAutocomplete = async () => {
-            var autocomplete;
-            const { Place } = await google.maps.importLibrary("places");
-            var searchInput = 'myAddress';
-            autocomplete = new google.maps.places.Autocomplete((document.getElementById(searchInput)), {
-                types: ['geocode'],
-                fields: ['geometry', 'name', 'place_id']
 
-            });
-
-            google.maps.event.addListener(autocomplete, 'place_changed', function () {
-                var near_place = autocomplete.getPlace();
-                console.log(near_place)
-            });
-
-        };
-        callAutocomplete();
 
 </script>

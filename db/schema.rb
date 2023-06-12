@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_06_07_145452) do
+ActiveRecord::Schema[7.0].define(version: 2023_06_12_142411) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -29,6 +29,9 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_07_145452) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "city"
+    t.float "latitude"
+    t.float "longitude"
+    t.string "google_place_id"
     t.index ["user_id"], name: "index_maps_on_user_id"
   end
 
@@ -41,6 +44,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_07_145452) do
     t.bigint "map_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "google_place_id"
     t.index ["map_id"], name: "index_point_of_interests_on_map_id"
   end
 
@@ -52,6 +56,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_07_145452) do
     t.bigint "map_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "google_place_id"
     t.index ["map_id"], name: "index_potential_locations_on_map_id"
   end
 
