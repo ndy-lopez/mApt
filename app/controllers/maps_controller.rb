@@ -3,6 +3,7 @@ class MapsController < ApplicationController
   def show
     @map = Map.find(params[:id])
     @pot_locs = @map.potential_locations
+    @pois = @map.point_of_interests
     @new_pot_loc = PotentialLocation.new
 
     # TODO: (Fred) Refactor this line, as there is a much cleaner way of doing things.
@@ -10,8 +11,13 @@ class MapsController < ApplicationController
       {
         lat: pot_loc.latitude,
         lng: pot_loc.longitude,
-        address: pot_loc.address
+        name: pot_loc.name,
+        type: "potential location"
       }
+    end
+
+    @pois.each do |poi|
+      @markers.push({ lat: poi.latitude, lng: poi.longitude, name: poi.name, type: "point of interest" })
     end
   end
 
