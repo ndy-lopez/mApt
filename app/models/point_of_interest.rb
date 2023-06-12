@@ -5,7 +5,8 @@ class PointOfInterest < ApplicationRecord
 
   # validates :content, presence: true
 
-  CATEGORIES = ["Friend/Family", "Restaurants", "Education", "Work"]
+  CATEGORIES = ["Friends/Family", "Education", "Work"]
+  AMENITIES = ["Groceries", "Gym", "Pharmacy", "Metro", "Restaurants"]
   validates :category, inclusion: { in: CATEGORIES }
 
 

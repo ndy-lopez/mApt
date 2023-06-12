@@ -25,25 +25,27 @@
 
 
 <div class="card-category-3">
-  <ul>
+  <ul class="card-list">
     <% @maps.each do |map| %>
-        <li class="card-item">
-          <div class="card-content">
-            <p><%= map.city.capitalize %></p>
+      <li class="card-item">
+        <div class="card-content">
+          <p><%= map.city.titleize %></p>
+          <div class="image-container">
             <% unsplash_photo = Unsplash::Photo.search(map.city).first %>
             <% if unsplash_photo %>
-              <div class="image-container">
-                <%= image_tag(unsplash_photo.urls.regular, class: "card-image") %>
-              </div>
+              <%= image_tag(unsplash_photo.urls.regular, class: "card-image rounded") %>
             <% else %>
               <p>No image found for <%= map.city %>.</p>
             <% end %>
-            <a class="btn btn-add-city mt-2" href="/maps/<%= map.id %>">Open Map</a>
           </div>
-        </li>
+          <a class="btn btn-add-city mt-2" href="/maps/<%= map.id %>">Open Map</a>
+        </div>
+      </li>
     <% end %>
   </ul>
 </div>
+
+
 
 <script>
     (g=>{var h,a,k,p="The Google Maps JavaScript API",c="google",l="importLibrary",q="__ib__",m=document,b=window;b=b[c]||(b[c]={});var d=b.maps||(b.maps={}),r=new Set,e=new URLSearchParams,u=()=>h||(h=new Promise(async(f,n)=>{await (a=m.createElement("script"));e.set("libraries",[...r]+"");for(k in g)e.set(k.replace(/[A-Z]/g,t=>"_"+t[0].toLowerCase()),g[k]);e.set("callback",c+".maps."+q);a.src=`https://maps.${c}apis.com/maps/api/js?`+e;d[q]=f;a.onerror=()=>h=n(Error(p+" could not load."));a.nonce=m.querySelector("script[nonce]")?.nonce||"";m.head.append(a)}));d[l]?console.warn(p+" only loads once. Ignoring:",g):d[l]=(f,...n)=>r.add(f)&&u().then(()=>d[l](f,...n))})({
