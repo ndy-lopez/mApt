@@ -66,26 +66,27 @@ export default class extends Controller {
     // beachFlagImg.src = "https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png";
     // END - Icon
   }
-
+    // async #addMarkerToMap(marker, map) {
   async #addMarkerToMap(marker, map) {
-    const { PinElement, AdvancedMarkerElement } = await google.maps.importLibrary("marker")
 
-    const mAptPin = new PinElement({
-      borderColor: "blue",
-      glyphColor: "black",
-      background: "yellow",
-      glyph: "pol",
-      scale: 1.5,
-    })
+      const { PinElement, AdvancedMarkerElement } = await google.maps.importLibrary("marker")
 
-    new AdvancedMarkerElement({
-      map: map,
-      position: marker,
-      title: `Potential location : ${marker.address} `,
-      content: mAptPin.element, // the marker is a pin
-      // content: beachFlagImg, // OR the marker is an icon
-    });
+      const mAptPin = new PinElement({
+        borderColor: "blue",
+        glyphColor: "black",
+        background: "yellow",
+        glyph: "pol",
+        // glyph: marker.type,
+        scale: 1.5,
+      })
 
+      new AdvancedMarkerElement({
+        map: map,
+        position: marker,
+        title: `${marker.type} : ${marker.name} `,
+        content: mAptPin.element, // the marker is a pin
+        // content: beachFlagImg, // OR the marker is an icon
+      });
 
   };
 
