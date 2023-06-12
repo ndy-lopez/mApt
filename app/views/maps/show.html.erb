@@ -1,6 +1,6 @@
   <div class="header-div">
   <%# create a logic to display city name that was created %>
-    <h1>Montreal</h1>
+    <h1><strong><%= @map.city %></strong></h1>
 
     <h5>Where are you thinking of moving?</h5>
     <%= simple_form_for([@map, @new_pot_loc]) do |f| %>
@@ -30,6 +30,7 @@
       id="map"
       data-controller="map"
       data-map-address-value="<%= @address %>"
+      data-map-markers-value="<%= @markers.to_json %>"
       data-map-target="content"
       >
     </div>
@@ -45,18 +46,17 @@
           <% end %>
       </div>
 
-
-
       <div class="toggle-card">
         <p> Filter by Amenities:</p>
-        <% PointOfInterest::CATEGORIES.each do |category| %>
+        <% PointOfInterest::AMENITIES.each do |amenity| %>
         <div class="form-check form-switch">
           <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault">
-          <label class="form-check-label" for="flexSwitchCheckDefault"> <%= category %></label>
+          <label class="form-check-label" for="flexSwitchCheckDefault"> <%= amenity %></label>
         </div>
        <% end %>
       </div>
     </div>
+
 </div>
 
 <%# THIS SCRIPT BELOW IS TEMPORARILY PLACED IN SHOW.HTML.ERB - DO NOT DELETE %>

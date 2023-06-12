@@ -14,14 +14,15 @@ User.destroy_all
 user1 = User.create!(username: 'Smith', email: 'john@gmail.com', password: 'password')
 user2 = User.create!(username: 'Tim', email: 'tim@gmail.com', password: 'password')
 
-map1 = Map.create(name: 'University', city: 'Montreal', user_id: user1.id)
-map2 = Map.create(name: 'Summer Abroad', city: 'Athens', user_id: user1.id)
-map3 = Map.create(name: 'Bachelor Party', city: 'Las Vegas', user_id: user2.id)
+map1 = Map.create!(name: 'University', city: 'Montreal', user_id: user1.id)
+map2 = Map.create!(name: 'Bachelor Party', city: 'Las Vegas', user_id: user2.id)
 
-PointOfInterest.create!(name: 'Tom', category: 'friend', address: '528 Victoria', latitude: '', longitude: '', map_id: map1.id)
+PointOfInterest.create!(name: 'Tom', category: 'Friends/Family', address: '528 Victoria', latitude: '', longitude: '', map_id: map1.id)
+PointOfInterest.create!(name: 'Concordia', category: 'Education', address: '5333 rue Casgrain #102, Montreal', latitude: 45.5261702, longitude: -73.5950124, map_id: map1.id)
+PointOfInterest.create!(name: 'Mcdonalds', category: 'Work', address: '528 Victoria', latitude: 45.5221592, longitude: -73.6215761, map_id: map1.id)
 
-PotentialLocation.create!(name: 'LeWagon', address: '5333 Casgrain Ave Suite 102, Montreal, Quebec H2T 1X3', latitude: 45.5261702, longitude: -73.5950124, map_id: map1.id)
-PotentialLocation.create!(name: 'YMCA', address: '560 Victoria', latitude: 45.5221592, longitude: -73.6215761, map_id: map1.id)
-PotentialLocation.create!(name: 'Kem Coba', address: '60 Av. Fairmount O, Montréal, QC H2T 2M2', latitude: 45.5229935, longitude: -73.5949571, map_id: map1.id)
+
+PotentialLocation.create!(name: 'LeWagon', address: '5333 rue Casgrain #102, Montreal', latitude: 45.5261702, longitude: -73.5950124, map_id: map1.id)
+PotentialLocation.create!(name: 'YMCA', address: '528 Victoria', latitude: 45.5221592, longitude: -73.6215761, map_id: map1.id)
 
 puts "Generating Users, maps, POIs and POLs..."
