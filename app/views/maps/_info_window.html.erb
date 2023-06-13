@@ -1,8 +1,11 @@
 <div class="card-window">
   <p>
-    <%= marker.name %>
+    <%= marker[:name] %>
   </p>
   <p>
-    <%= marker.address %>
+    <%= marker[:address] %>
   </p>
+  <div>
+    <%= marker[:info_window_html] %>
+  </div>
 </div>
