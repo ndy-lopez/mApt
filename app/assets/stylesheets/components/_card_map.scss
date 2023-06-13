@@ -5,7 +5,7 @@
   position: relative;
   height: 250px;
   color: white;
-  font-size: 24px;
+  font-size: 16px;
   font-weight: bold;
   text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
   border-radius: 5px;
@@ -20,7 +20,7 @@
   background-position: center;
   text-align: center;
   color: white;
-  font-size: 24px;
+  font-size: 16px;
   font-weight: bold;
   text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
   border-radius: 5px;
@@ -44,6 +44,7 @@
   width: 800px;
   height: 200px;
   object-fit: cover;
+  border-radius: 5px;
 }
 
 
@@ -55,35 +56,23 @@
 
 
 .card-item {
+  color: $white;
+  font-size: 26px;
+  font-weight: bold;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  border-bottom: solid 1px;
   margin: 10px;
   width: 800px;
-}
-
-.card-content {
-  text-align: center;
-  max-width: 300px;
-}
-
-.card-content p {
-  margin: 5px 0;
-}
-
-
-.overlay-content {
-  display: flex;
-  align-items: center;
-  height: 300px;
-  object-fit: cover;
-  text-align: center;
 }
 
 .image-container {
   position: relative;
   width: 800px;
   height: 300px;
-  background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
+  object-fit: cover;
 }
 
 .overlay-content {
@@ -95,13 +84,4 @@
   display: flex;
   justify-content: center;
   align-items: center;
-}
-
-.centered-content {
-  text-align: center;
-}
-
-.image-overlay img {
-  width: 100%;
-  height: auto;
 }

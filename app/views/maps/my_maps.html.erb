@@ -1,15 +1,10 @@
 <div class="card-category-2" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= image_path("GPS.jpg") %>)">
-  <div class="heading-container">
     <h1 class="my-cities-heading">My Cities</h1>
-  </div>
-
   <%= simple_form_for(@map, html: { data: { controller: 'autocomplete', autocomplete_filter_value: 'city' } }) do |f| %>
     <div class="city-form">
-      <div class="form-inputs">
           <%= f.input :city, label: false, input_html: { data: { autocomplete_target: 'searchField' } } %>
           <%= f.submit "Add a city", class: "btn-add-city" %>
-      </div>
-      <%= render 'shared/form_hidden_google_info', f: %>
+      </div>      <%= render 'shared/form_hidden_google_info', f: %>
     </div>
   <% end %>
 </div>
@@ -21,25 +16,26 @@
 <div class="card-category-3">
 <div class="card-list">
   <% @maps.each do |map| %>
-    <div class="card-item">
-      <div class="card-content">
-        <div class="image-overlay">
-          <% unsplash_photo = Unsplash::Photo.search(map.city).first %>
-          <% if unsplash_photo %>
-            <div class="image-container" style="background-image: url('<%= unsplash_photo.urls.regular %>');">
-              <div class="overlay-content">
-                <div class="centered-content">
-                  <p><%= map.city.titleize %></p>
-                  <a class="btn btn-add-city mt-2" href="/maps/<%= map.id %>">Open Map</a>
+    <%= link_to map_path(map.id) do %>
+      <div class="card-item">
+
+          <div class="image-overlay">
+            <% unsplash_photo = Unsplash::Photo.search(map.city).first %>
+            <% if unsplash_photo %>
+              <div class="image-container" style="background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('<%= unsplash_photo.urls.regular %>');">
+              <%# <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/background.png);"> %>
+                <div class="overlay-content">
+                  <div class="centered-content">
+                    <p><%= map.city.titleize %></p>
+                  </div>
                 </div>
               </div>
-            </div>
-          <% else %>
-            <p>No image found for <%= map.city %></p>
-          <% end %>
-        </div>
+            <% else %>
+              <p>No image found for <%= map.city %></p>
+            <% end %>
+          </div>
       </div>
-    </div>
+    <% end %>
   <% end %>
 </div>
 </div>
