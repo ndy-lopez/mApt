@@ -10,7 +10,7 @@ class PointOfInterestsController < ApplicationController
     @poi = PointOfInterest.new(poi_params)
     @poi.map = Map.first
     if @poi.save
-      redirect_to point_of_interests_path, notice: "POI was successfully added."
+      redirect_to point_of_interests_path, notice: "Point of Interest was successfully added."
     else
       # set_pois
       render :index, status: :unprocessable_entity
