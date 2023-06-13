@@ -27,7 +27,8 @@
         </div>
       </div>
   <% end %>
-  <a class="btn btn-gradient" href="/compare/">Get Scores</a>
+  <%# <a class="btn btn-gradient" href="/compare/">Get Scores</a> %>
+  <%= link_to "Get Scores", map_compare_path(@map), class: "btn btn-gradient" %>
  </div>
 </div>
 
