@@ -1,10 +1,9 @@
 .card-category {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
   position: relative;
   height: 250px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
   color: white;
   font-size: 24px;
   font-weight: bold;
@@ -19,8 +18,6 @@
   height: 250px;
   background-size: cover;
   background-position: center;
-  display: flex;
-  justify-content: center;
   text-align: center;
   color: white;
   font-size: 24px;
@@ -31,10 +28,7 @@
 }
 
 .card-category-3 {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: $light-blue;
+  color: white;
   font-size: 24px;
   font-weight: bold;
   text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
@@ -43,31 +37,71 @@
   border-bottom: solid 1px;
 }
 
-.card-list {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: flex-start; /* Adjust the alignment to flex-start */
+.card-image {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 800px;
+  height: 200px;
+  object-fit: cover;
 }
 
+
+.card-list {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+
 .card-item {
-  flex-basis: 33.33%;
-  padding: 10px;
-  box-sizing: border-box;
-  display: flex; /* Add display:flex to align items vertically */
-  flex-direction: column; /* Set flex-direction to column */
+  margin: 10px;
+  width: 800px;
 }
 
 .card-content {
-  flex-grow: 1;
+  text-align: center;
+  max-width: 300px;
+}
+
+.card-content p {
+  margin: 5px 0;
+}
+
+
+.overlay-content {
+  display: flex;
+  align-items: center;
+  height: 300px;
+  object-fit: cover;
+  text-align: center;
 }
 
 .image-container {
-  height: 100%;
+  position: relative;
+  width: 800px;
+  height: 300px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
 }
 
-.card-image {
+.overlay-content {
+  position: absolute;
+  top: 0;
+  left: 0;
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.centered-content {
+  text-align: center;
+}
+
+.image-overlay img {
+  width: 100%;
+  height: auto;
 }
