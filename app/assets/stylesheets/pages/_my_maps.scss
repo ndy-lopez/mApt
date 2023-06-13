@@ -1,33 +1,42 @@
-.city-form {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.city-form-inputs {
-  margin-top: 10px;
-  width: 400px;
-  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-}
-
-.city-form-inputs input::placeholder {
-  color: gray;
-}
-
-.city-form-inputs input {
-}
-
-.card-item {
+.card-category-2 {
+  position: relative;
+  height: 250px;
+  background-size: cover;
+  background-position: center;
   display: flex;
   flex-direction: column;
-  margin: 10px;
-}
-
-.card-content {
+  justify-content: center;
+  align-items: center;
   text-align: center;
-  max-width: 300px;
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+  border-radius: 5px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
 }
 
-.card-content p {
-  margin: 5px 0;
+.heading-container {
+  position: absolute;
+  top: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.my-cities-heading {
+  margin: 0;
+}
+
+.city-form {
+  margin-top: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  font-size: 16px;
+}
+
+.btn-add-city {
+  height: 40px;
+  margin-bottom: 12px;
 }
