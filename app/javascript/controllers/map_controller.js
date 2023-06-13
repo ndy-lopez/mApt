@@ -143,21 +143,3 @@ console.log(contentString)
 
 
 };
-
-//   const infowindow = new google.maps.InfoWindow({
-//     content: contentString,
-//     ariaLabel: "Uluru",
-//   });
-//   const marker = new google.maps.Marker({
-//     position: uluru,
-//     map,
-//     title: "Uluru (Ayers Rock)",
-//   });
-
-//   marker.addListener("click", () => {
-//     infowindow.open({
-//       anchor: marker,
-//       map,
-//     });
-//   });
-// }
