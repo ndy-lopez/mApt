@@ -12,6 +12,12 @@ class PotentialLocationsController < ApplicationController
 
   end
 
+  def destroy
+    @pot_loc = PotentialLocation.find(params[:id])
+    @pot_loc.destroy
+    redirect_to map_path, notice: "Potential Location was successfully removed."
+  end
+
   private
 
   def pot_locs_params

@@ -20,8 +20,9 @@ class MapsController < ApplicationController
     @point_of_interests_ids = @map.point_of_interests.map(&:google_place_id)
 
     @pois.each do |poi|
-      @markers.push({ lat: poi.latitude, lng: poi.longitude, name: poi.name, type: "Point of interest" })
+      @markers.push({ place_id: poi.google_place_id, lat: poi.latitude, lng: poi.longitude, name: poi.name, type: "point of interest" })
     end
+
   end
 
   def my_maps
@@ -31,6 +32,7 @@ class MapsController < ApplicationController
   end
 
   def compare
+
     @map = Map.first
     @pot_locs = @map.potential_locations
     @pois = @map.point_of_interests
@@ -50,6 +52,8 @@ class MapsController < ApplicationController
         name: poi.name
       }
     end
+
+   
   end
 
   def create

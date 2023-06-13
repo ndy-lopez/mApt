@@ -27,6 +27,7 @@ $font-family-sans-serif: $body-font;
 .form-control {
   background: #FFFFFF !important;
   border-radius: 8px !important;
+
 }
 
 .form-label {
@@ -59,4 +60,15 @@ $font-family-sans-serif: $body-font;
 .form-check-input:checked {
   background-color: $light-blue !important;
   border-color: $light-blue !important;
+}
+
+.progress-bar {
+  background-color: $navy !important;
+
+}
+
+.progress {
+  height: 5px !important;
+  width: 200px !important;
+
 }
