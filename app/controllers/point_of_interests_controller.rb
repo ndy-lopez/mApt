@@ -11,8 +11,7 @@ class PointOfInterestsController < ApplicationController
     @poi = PointOfInterest.new(poi_params)
     @poi.map = Map.find(params[:map_id])
     if @poi.save
-
-      redirect_to map_point_of_interests_path, notice: "POI was successfully added."
+      redirect_to map_point_of_interests_path, notice: "Point of Interest was successfully added."
     else
       # set_pois
       raise

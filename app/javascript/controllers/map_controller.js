@@ -23,7 +23,7 @@ export default class extends Controller {
 
     const {PinElement} = await google.maps.importLibrary("marker")
 
-    const beachFlagImg = document.createElement("img");
+    // const beachFlagImg = document.createElement("img");
 
     // START - Icon - In case the marker is an icon
     // beachFlagImg.src = "https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png";
@@ -67,6 +67,7 @@ export default class extends Controller {
     // START - Icon - In case the marker is an icon
     // beachFlagImg.src = "https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png";
     // END - Icon
+
   }
     // async #addMarkerToMap(marker, map) {
   async #addMarkerToMap(marker, map) {
@@ -74,13 +75,20 @@ export default class extends Controller {
       const { PinElement, AdvancedMarkerElement } = await google.maps.importLibrary("marker")
 
       const mAptPin = new PinElement({
-        borderColor: "blue",
-        glyphColor: "black",
-        background: "yellow",
-        glyph: "pol",
-        // glyph: marker.type,
-        scale: 1.5,
+        borderColor: "grey",
+        glyphColor: "grey",
+        background: "blue",
+        // glyph: "xyz",
+        scale: 1,
       })
+
+      if (marker.type === "Potential location") {
+        mAptPin.background = "yellow";
+      } else if (marker.type === "Point of interest") {
+        mAptPin.background = "pink";
+      } else {
+        mAptPin.background = "white";
+      }
 
       new AdvancedMarkerElement({
         map: map,
