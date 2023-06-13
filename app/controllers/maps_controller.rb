@@ -35,9 +35,23 @@ class MapsController < ApplicationController
     @address = @map.city
   end
 
-
-
   def compare
+    @route1 = {
+      name: 'Tom',
+      walk: 8.to_i,
+      bike: 4.to_i,
+      pt: 20.to_i,
+      drive: 2.to_i
+    }
+    @route2 = {
+      name: 'Mcdonalds',
+      walk: 8.to_i,
+      bike: 4.to_i,
+      pt: 20.to_i,
+      drive: 2.to_i
+    }
+
+    @routes_array
 
   end
 

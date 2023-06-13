@@ -23,7 +23,7 @@ class PointOfInterestsController < ApplicationController
   def destroy
     @poi = PointOfInterest.find(params[:id])
     @poi.destroy
-    redirect_to point_of_interests_path, notice: "Point of Interest was successfully destroyed."
+    redirect_to point_of_interests_path, notice: "Point of Interest was successfully removed."
   end
 
   private
