@@ -5,7 +5,7 @@
     <div class="city-form">
           <%= f.input :city, label: false, input_html: { data: { autocomplete_target: 'searchField' } } %>
           <%= f.submit "Add a city", class: "btn-add-city" %>
-      </div>      <%= render 'shared/form_hidden_google_info', f: %>
+          <%= render 'shared/form_hidden_google_info', f: %>
     </div>
   <% end %>
 </div>
