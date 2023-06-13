@@ -23,7 +23,6 @@ class MapsController < ApplicationController
     @pois.each do |poi|
       @markers.push({ place_id: poi.google_place_id, lat: poi.latitude, lng: poi.longitude, name: poi.name, type: "point of interest" })
     end
-
   end
 
   def my_maps

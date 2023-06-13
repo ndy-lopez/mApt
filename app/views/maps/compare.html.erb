@@ -4,17 +4,12 @@
 </div>
 
 
-<div class="score-div"
-     data-controller="compare"
-     data-compare-potential-locations-value="<%= @potentialLocations.to_json %>"
-     data-compare-point-of-interests-value="<%= @pointOfInterests.to_json %>">
+<div class="score-div">
+
 
   <h4>Scores</h4>
     <div class="score-card">
-      <div class ="delete-card">
-        <i class="fa-solid fa-x" style="color: #bababa;"></i>
-        <%=  %>
-      </div>
+
       <div class="amneties-progress-bar" >
         <div>
           <p>Groceries</p>
@@ -37,6 +32,14 @@
           </div>
         </div>
 
+
+
+        <div>
+            <p>Public transport</p>
+          <div class="progress" role="progressbar" aria-label="Basic example" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">
+            <div class="progress-bar" style="width: 45%"></div>
+          </div>
+        </div>
       </div>
     </div>
 </div>

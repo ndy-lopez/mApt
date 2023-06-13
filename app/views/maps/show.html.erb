@@ -1,6 +1,13 @@
 <div class="header-div">
+
+
+    <h1><strong><%= @map.city %></strong></h1>
+  <%= link_to 'My Address Book', map_point_of_interests_path(@map) %>
+
+
   <%# create a logic to display city name that was created %>
     <h1><strong><%= @map.city %></strong></h1>
+
     <%= simple_form_for([@map, @new_pot_loc], html: { data: { controller: 'autocomplete' } }) do |f| %>
       <div class="header-search">
         <div class="form-inputs">
@@ -13,34 +20,24 @@
       </div>
     <% end %>
 
-  <%= link_to 'My Address Book', map_point_of_interests_path(@map) %>
-
 
   <div class="pol-div">
     <% @pot_locs.each do |loc| %>
       <div class="adress-div">
         <%= loc.address %>
         <div class ="delete-pol">
-          <%# <%= link_to point_of_interest_path(poi), data: {turbo_method: :delete, turbo_confirm: "Delete #{poi.name}?"} do %>
+          <%= link_to potential_location_path(loc), data: {turbo_method: :delete, turbo_confirm: "Delete #{loc.address}?"} do %>
             <i class="fa-solid fa-x fa-2xs" style="color: #c9c9c9;"></i>
-          <%# <% end %>
+          <% end %>
         </div>
       </div>
   <% end %>
-  <%# <a class="btn btn-gradient" href="/compare/">Get Scores</a> %>
+
   <%= link_to "Get Scores", map_compare_path(@map), class: "btn btn-gradient" %>
  </div>
 </div>
 
-  <%# <div> %>
-  <%# <script type='text/javascript'>
-  var ws_wsid = 'g35f7dd2e7f1942d6825b3b577290dade';
-  var ws_address = '528 Vicotria, westmount';
-  var ws_format = 'tall';
-  var ws_width = '400';
-  var ws_height = '500';
-  </script><style type='text/css'>#ws-walkscore-tile{position:relative;text-align:left}#ws-walkscore-tile *{float:none;}</style><div id='ws-walkscore-tile'></div><script type='text/javascript' src='http://www.walkscore.com/tile/show-walkscore-tile.php'></script>
-  </div> %>
+
 
 <div class="map-toggle">
     <div
@@ -53,29 +50,8 @@
       >
     </div>
 
-    <div class="toggle-div">
-      <div class="toggle-card">
-          <p> Filter by Address Book:</p>
-          <% PointOfInterest::CATEGORIES.each do |category| %>
-            <div class="form-check form-switch">
-              <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault">
-              <label class="form-check-label" for="flexSwitchCheckDefault"> <%= category %></label>
-            </div>
-          <% end %>
-      </div>
 
-      <div class="toggle-card">
-        <p> Filter by Amenities:</p>
-        <% PointOfInterest::AMENITIES.each do |amenity| %>
-        <div class="form-check form-switch">
-          <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault">
-          <label class="form-check-label" for="flexSwitchCheckDefault"> <%= amenity %></label>
-        </div>
-       <% end %>
-      </div>
-    </div>
 
-</div>
 
 <%# THIS SCRIPT BELOW IS TEMPORARILY PLACED IN SHOW.HTML.ERB - DO NOT DELETE %>
 <script>
