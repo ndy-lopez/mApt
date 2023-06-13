@@ -31,6 +31,13 @@ class MapsController < ApplicationController
     @point_of_interests_ids = @map.point_of_interests.map(&:google_place_id)
   end
 
+  def my_maps
+    @maps = current_user.maps
+    @map = Map.new # Initialize a new Map object
+    @address = @map.city
+  end
+
+
   def compare
 
     @map = Map.first
