@@ -59,7 +59,7 @@
   padding: 10px;
   margin: 10px;
   display: flex;
-  border-style: groove;
+  border-style: 1px solid;
   justify-content: space-between;
   overflow-wrap: normal;
 }
@@ -72,15 +72,13 @@
 }
 
 .header-search {
-
   display: flex;
-
 }
 
 .delete-pol{
   // display: flex;
-
 }
+
 .search-input-map {
   width: 500px;
   height: 40px;
