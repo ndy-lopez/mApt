@@ -4,7 +4,7 @@
   h1 {
     color: $light-blue;
   }
-  margin: 30px;
+  margin: 10px;
 }
 
 .map-toggle {
@@ -12,9 +12,9 @@
   flex-direction: row;
   #map {
     position: relative;
-    height: 900px;
-    width: 900px;
-    margin: 30px;
+    height: 700px;
+    width: 700px;
+    margin: 10px;
     border-radius: 30px;
   }
 }
@@ -43,4 +43,40 @@
 .toggle-div {
   display: flex;
   flex-direction: column;
+}
+
+.adress-div {
+  background-color: white;
+  border-radius: 10px;
+  min-height: 50px;
+  width: 200px;
+  margin: 10px;
+  display: flex;
+  border-style: groove;
+  justify-content: space-between;
+  overflow-wrap: normal;
+}
+
+.pol-div {
+  display: flex;
+}
+
+.header-search {
+
+  display: flex;
+
+}
+
+.delete-pol{
+  // display: flex;
+
+}
+.search-input-map {
+  width: 500px;
+  height: 40px;
+}
+
+.search-button-map {
+  margin-left: -5px;
+  border-radius: 0 10px 10px 0;
 }
