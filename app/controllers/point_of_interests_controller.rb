@@ -32,7 +32,7 @@ class PointOfInterestsController < ApplicationController
   end
 
   def poi_params
-    params.require(:point_of_interest).permit(:name, :address, :category)
+    params.require(:point_of_interest).permit(:name, :address, :category, :latitude, :longitude, :google_place_id)
   end
 
 
