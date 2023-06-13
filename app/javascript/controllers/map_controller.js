@@ -13,6 +13,7 @@ export default class extends Controller {
 
   connect() {
     this.#initMap()
+    this.testScore()
   }
 
   // INFO: this was the old initial function for the map, should no longer be needed but keeping in case
@@ -141,5 +142,17 @@ console.log(contentString)
     });
   }
 
+  testScore() {
+    const walk_times = [ 2018, 690, 3003, 450 ]
+    const bike_times = [ 1200, 300, 1800, 200 ]
+    let sum = 0;
+    for (let i = 0; i < walk_times.length; i++ ) {
+      sum += walk_times[i];
+    }
+    const walk_avg_all_poi = (sum / walk_times.length)
 
+
+    console.log(walk_avg_all_poi)
+
+  }
 };
