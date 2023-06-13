@@ -31,13 +31,19 @@ export default class extends Controller {
   };
 
   // get distance matrix response
-  service.getDistanceMatrix(request).then((response) => {
-    console.log(JSON.stringify(
-      response,
-      null,
-      2
-    ))
-
-  });
+  const response = service.getDistanceMatrix(request)
+  .then((response) => {
+    // console.log(response.rows[0])
+    const driving = response.rows
+    console.log(driving)
+    // JSON.stringify(
+    //   response,
+    //   null,
+    //   2
+    // )
+    });
+    // const driving = response
+    // console.log(driving)
   }
+
 }

@@ -6,7 +6,6 @@ class MapsController < ApplicationController
     @pois = @map.point_of_interests
     @new_pot_loc = PotentialLocation.new
 
-    # TODO: (Fred) Refactor this line, as there is a much cleaner way of doing things.
     @markers = @pot_locs.select { |pot_loc| pot_loc.latitude.present? && pot_loc.longitude.present? }.map do |pot_loc|
       {
         lat: pot_loc.latitude,
@@ -18,18 +17,26 @@ class MapsController < ApplicationController
       }
     end
 
-    @point_of_interests_ids = @map.point_of_interests.map(&:google_place_id)
-
     @pois.each do |poi|
-      @markers.push({ place_id: poi.google_place_id, lat: poi.latitude, lng: poi.longitude, name: poi.name, type: "point of interest" })
+      @markers.push({
+        place_id: poi.google_place_id,
+        lat: poi.latitude,
+        lng: poi.longitude,
+        name: poi.name,
+        type: "point of interest",
+        info_window_html: render_to_string(partial: "info_window", locals: { marker: poi })
+      })
     end
+
+    @point_of_interests_ids = @map.point_of_interests.map(&:google_place_id)
   end
 
   def my_maps
     @maps = current_user.maps
-    @map = Map.new
+    @map = Map.new # Initialize a new Map object
     @address = @map.city
   end
+
 
   def compare
 
@@ -52,8 +59,6 @@ class MapsController < ApplicationController
         name: poi.name
       }
     end
-
-   
   end
 
   def create
@@ -69,13 +74,10 @@ class MapsController < ApplicationController
     end
   end
 
-
-  def edit
-
-  end
-
   def destroy
-
+    @map = Map.find(params[:id])
+    @map.destroy
+    redirect_to my_maps_path, notice: "Potential Location was successfully removed."
   end
 
   private
