@@ -20,10 +20,10 @@ class MapsController < ApplicationController
     @point_of_interests_ids = @map.point_of_interests.map(&:google_place_id)
 
     @pois.each do |poi|
+      @markers.push({ place_id: poi.google_place_id, lat: poi.latitude, lng: poi.longitude, name: poi.name, type: "point of interest" })
+    end
       @markers.push({ lat: poi.latitude, lng: poi.longitude, name: poi.name, type: "Point of interest" })
     end
-
-
   end
 
   def my_maps
@@ -32,9 +32,23 @@ class MapsController < ApplicationController
     @address = @map.city
   end
 
-
-
   def compare
+    @route1 = {
+      name: 'Tom',
+      walk: 8.to_i,
+      bike: 4.to_i,
+      pt: 20.to_i,
+      drive: 2.to_i
+    }
+    @route2 = {
+      name: 'Mcdonalds',
+      walk: 8.to_i,
+      bike: 4.to_i,
+      pt: 20.to_i,
+      drive: 2.to_i
+    }
+
+    @routes_array
 
   end
 
