@@ -6,8 +6,6 @@
 
 
   <%# create a logic to display city name that was created %>
-    <h1><strong><%= @map.city %></strong></h1>
-
     <%= simple_form_for([@map, @new_pot_loc], html: { data: { controller: 'autocomplete' } }) do |f| %>
       <div class="header-search">
         <div class="form-inputs">
