@@ -27,14 +27,17 @@
   box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
 }
 
-.delete-card {
-  justify-content: space-between;
-  text-align: right;
-
-}
 
 .amneties-progress-bar {
   display:flex;
   align-self: center;
   justify-content: space-between;
+}
+
+.adress-card-dropdown {
+  padding: 15px;
+  height: 150px;
+  width: 250px;
+  margin: 10px;
+
 }
