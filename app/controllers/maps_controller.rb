@@ -13,7 +13,8 @@ class MapsController < ApplicationController
         lng: pot_loc.longitude,
         place_id: pot_loc.google_place_id,
         name: pot_loc.name,
-        type: "Potential location"
+        type: "Potential location",
+        info_window_html: render_to_string(partial: "info_window", locals: { marker: pot_loc })
       }
     end
 
@@ -21,8 +22,6 @@ class MapsController < ApplicationController
 
     @pois.each do |poi|
       @markers.push({ place_id: poi.google_place_id, lat: poi.latitude, lng: poi.longitude, name: poi.name, type: "point of interest" })
-    end
-      @markers.push({ lat: poi.latitude, lng: poi.longitude, name: poi.name, type: "Point of interest" })
     end
   end
 
@@ -87,5 +86,4 @@ class MapsController < ApplicationController
   def pot_locs_params
     params.require(:potential_location).permit(:name, :adress)
   end
-
 end
