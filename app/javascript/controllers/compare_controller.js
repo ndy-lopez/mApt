@@ -32,11 +32,12 @@ export default class extends Controller {
 
   // get distance matrix response
   service.getDistanceMatrix(request).then((response) => {
-    console.log(JSON.stringify(
-      response,
-      null,
-      2
-    ))
+    console.log(response)
+    // console.log(JSON.stringify(
+    //   response,
+    //   null,
+    //   2
+    // ))
 
   });
   }
