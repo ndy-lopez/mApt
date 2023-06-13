@@ -23,6 +23,7 @@ class MapsController < ApplicationController
     @pois.each do |poi|
       @markers.push({ place_id: poi.google_place_id, lat: poi.latitude, lng: poi.longitude, name: poi.name, type: "point of interest" })
     end
+
   end
 
   def my_maps
@@ -32,23 +33,28 @@ class MapsController < ApplicationController
   end
 
   def compare
-    @route1 = {
-      name: 'Tom',
-      walk: 8.to_i,
-      bike: 4.to_i,
-      pt: 20.to_i,
-      drive: 2.to_i
-    }
-    @route2 = {
-      name: 'Mcdonalds',
-      walk: 8.to_i,
-      bike: 4.to_i,
-      pt: 20.to_i,
-      drive: 2.to_i
-    }
 
-    @routes_array
+    @map = Map.first
+    @pot_locs = @map.potential_locations
+    @pois = @map.point_of_interests
+    @potentialLocations = @pot_locs.select { |pot_loc| pot_loc.latitude.present? && pot_loc.longitude.present? }.map do |pot_loc|
+      {
+        lat: pot_loc.latitude,
+        lng: pot_loc.longitude,
+        place_id: pot_loc.google_place_id,
+        name: pot_loc.name
+      }
+    end
+    @pointOfInterests = @pois.select { |poi| poi.latitude.present? && poi.longitude.present? }.map do |poi|
+      {
+        lat: poi.latitude,
+        lng: poi.longitude,
+        place_id: poi.google_place_id,
+        name: poi.name
+      }
+    end
 
+   
   end
 
   def create

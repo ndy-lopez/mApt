@@ -1,6 +1,6 @@
 
 .rank-div {
-  margin: 70px;
+  padding: 70px;
   background-color: whitesmoke;
 }
 .score-div {
@@ -8,4 +8,33 @@
   font-family: $headers-font bold;
   margin: 70px;
   background-color: white;
+}
+
+.score-card {
+  background-color: white;
+  color: black;
+  font-family: $text-font;
+  padding: 15px;
+  height: 450px;
+  width: 800px;
+  margin: 10px;
+  position: relative;
+  border-radius: 5px;
+  position: relative;
+  justify-content: space-between;
+  padding-bottom: 100px;
+  font-size: 14px;
+  box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
+}
+
+.delete-card {
+  justify-content: space-between;
+  text-align: right;
+
+}
+
+.amneties-progress-bar {
+  display:flex;
+  align-self: center;
+  justify-content: space-between;
 }
