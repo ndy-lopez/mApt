@@ -4,7 +4,26 @@
   justify-content: center;
   align-items: center;
   position: relative;
+
 }
+
+.city-form-inputs {
+  margin-top: 10px;
+  width: 400px;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+.city-form-inputs input::placeholder {
+  color: gray;
+}
+
+.city-form-inputs input {
+}
+
+.card-item {
+
+}
+
 .card-category-2 {
   position: relative;
   height: 250px;

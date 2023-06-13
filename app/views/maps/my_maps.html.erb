@@ -1,7 +1,7 @@
 <div class="card-category-2" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= image_path("GPS.jpg") %>)">
 
     <h1 class="my-cities-heading">My Cities</h1>
-  <%= simple_form_for(@map, html: { data: { controller: 'autocomplete', autocomplete_filter_value: 'city' } }) do |f| %>
+    <%= simple_form_for(@map, html: { data: { controller: 'autocomplete', autocomplete_filter_value: 'city' } }) do |f| %>
     <div class="city-form">
           <%= f.input :city, label: false, input_html: { data: { autocomplete_target: 'searchField' } } %>
           <%= f.submit "Add a city", class: "btn-add-city" %>
