@@ -89,15 +89,14 @@ export default class extends Controller {
       } else {
         mAptPin.background = "white";
       }
-
-      new AdvancedMarkerElement({
+      const advancedMarker = new AdvancedMarkerElement({
         map: map,
         position: marker,
         title: `${marker.type} : ${marker.name} `,
         content: mAptPin.element, // the marker is a pin
         // content: beachFlagImg, // OR the marker is an icon
       });
-
+      this.#setInfoWindow(advancedMarker, map, marker.info_window_html);
   };
 
   async matrix() {
@@ -127,4 +126,38 @@ export default class extends Controller {
       console.log(response);
     }
 
+    async #setInfoWindow(advancedMarker, map, contentString) {
+console.log(contentString)
+    const infowindow = new google.maps.InfoWindow({
+      content: contentString,
+      ariaLabel: "",
+    });
+
+    advancedMarker.addListener("click", () => {
+      infowindow.open({
+        anchor: advancedMarker,
+        map,
+      });
+    });
+  }
+
+
 };
+
+//   const infowindow = new google.maps.InfoWindow({
+//     content: contentString,
+//     ariaLabel: "Uluru",
+//   });
+//   const marker = new google.maps.Marker({
+//     position: uluru,
+//     map,
+//     title: "Uluru (Ayers Rock)",
+//   });
+
+//   marker.addListener("click", () => {
+//     infowindow.open({
+//       anchor: marker,
+//       map,
+//     });
+//   });
+// }
