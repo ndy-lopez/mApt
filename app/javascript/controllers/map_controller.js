@@ -65,7 +65,7 @@ export default class extends Controller {
     // START - Icon - In case the marker is an icon
     // beachFlagImg.src = "https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png";
     // END - Icon
-    var service = new google.maps.places.PlacesService(map);
+
   }
     // async #addMarkerToMap(marker, map) {
   async #addMarkerToMap(marker, map) {
