@@ -9,6 +9,10 @@ export default class extends Controller {
     "googlePlaceId"
   ]
 
+  static values = {
+    filter: String
+  }
+
   connect() {
     this.#initAutocomplete();
   }
@@ -17,15 +21,14 @@ export default class extends Controller {
     const { Place } = await google.maps.importLibrary("places");
 
     const autocomplete = new google.maps.places.Autocomplete( this.searchFieldTarget, {
-      types: ['geocode'],
       fields: ['geometry', 'name', 'place_id']
     });
+    this.#setAutocompleteFilters(autocomplete)
 
     google.maps.event.addListener(autocomplete, 'place_changed', () => {
-        var near_place = autocomplete.getPlace();
-        this.#setCoordinates(near_place)
-      });
-
+      var near_place = autocomplete.getPlace();
+      this.#setCoordinates(near_place)
+    });
   };
 
   async #setCoordinates(result) {
@@ -34,5 +37,11 @@ export default class extends Controller {
     this.longitudeTarget.value = result.geometry.location.lng();
   }
 
-
+  async #setAutocompleteFilters(autocomplete) {
+    if (this.hasFilterValue && this.filterValue === 'city') {
+      autocomplete.setTypes(['(cities)'])
+    } else {
+      autocomplete.setTypes(['geocode'])
+    }
+  }
 }

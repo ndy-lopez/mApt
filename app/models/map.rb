@@ -4,6 +4,9 @@ class Map < ApplicationRecord
   has_many :amenities
   belongs_to :user
 
+  validates :latitude, presence: { message: "Please select a location" }
+  validates :longitude, presence: { message: "Please select a location" }
+
   def google_info
     {
       coordinates: {

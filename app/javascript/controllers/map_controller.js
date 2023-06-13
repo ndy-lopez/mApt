@@ -5,7 +5,10 @@ export default class extends Controller {
   static targets = ["content"]
   static values = {
     cityInfo: Object,
-    markers: Array
+    markers: Array,
+    poiIds: Array,
+    poisLat: Array,
+    poisLon: Array
   }
 
   connect() {
@@ -20,7 +23,7 @@ export default class extends Controller {
 
     const {PinElement} = await google.maps.importLibrary("marker")
 
-    const beachFlagImg = document.createElement("img");
+    // const beachFlagImg = document.createElement("img");
 
     // START - Icon - In case the marker is an icon
     // beachFlagImg.src = "https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png";
@@ -60,28 +63,68 @@ export default class extends Controller {
     this.markersValue.forEach((marker) => {
       this.#addMarkerToMap(marker, map)
     })
+    this.matrix()
     // START - Icon - In case the marker is an icon
     // beachFlagImg.src = "https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png";
     // END - Icon
+
   }
-
+    // async #addMarkerToMap(marker, map) {
   async #addMarkerToMap(marker, map) {
-    const { PinElement, AdvancedMarkerElement } = await google.maps.importLibrary("marker")
 
-    const mAptPin = new PinElement({
-      borderColor: "blue",
-      glyphColor: "black",
-      background: "yellow",
-      glyph: "pol",
-      scale: 1.5,
-    })
+      const { PinElement, AdvancedMarkerElement } = await google.maps.importLibrary("marker")
 
-    new AdvancedMarkerElement({
-      map: map,
-      position: marker,
-      title: `Potential location : ${marker.address} `,
-      content: mAptPin.element, // the marker is a pin
-      // content: beachFlagImg, // OR the marker is an icon
-    });
+      const mAptPin = new PinElement({
+        borderColor: "grey",
+        glyphColor: "grey",
+        background: "blue",
+        // glyph: "xyz",
+        scale: 1,
+      })
+
+      if (marker.type === "Potential location") {
+        mAptPin.background = "yellow";
+      } else if (marker.type === "Point of interest") {
+        mAptPin.background = "pink";
+      } else {
+        mAptPin.background = "white";
+      }
+
+      new AdvancedMarkerElement({
+        map: map,
+        position: marker,
+        title: `${marker.type} : ${marker.name} `,
+        content: mAptPin.element, // the marker is a pin
+        // content: beachFlagImg, // OR the marker is an icon
+      });
+
   };
+
+  async matrix() {
+    // const { DistanceMatrixService } = await google.maps.importLibrary("DistanceMatrix")
+    // console.log(this.poiIdsValue);
+    var origin1 = new google.maps.LatLng(45.5018869, -73.6075075);
+    var destinationA = new google.maps.LatLng(45.5243198, -73.5950124);
+
+    const service = new google.maps.DistanceMatrixService();
+    // console.log(service)
+    service.getDistanceMatrix(
+      {
+        origins: [origin1],
+        destinations: [destinationA],
+        travelMode: 'WALKING',
+        // 'WALKING', 'BIKING', 'PUBLIC TRANSIT',
+        // transitOptions: TransitOptions,
+        // drivingOptions: DrivingOptions,
+        unitSystem: google.maps.UnitSystem.METRIC,
+        // avoidHighways: Boolean,
+        // avoidTolls: Boolean,
+      }, this.callback);
+
+
+    }
+    async callback(response, status) {
+      console.log(response);
+    }
+
 };
