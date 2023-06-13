@@ -74,13 +74,10 @@ class MapsController < ApplicationController
     end
   end
 
-
-  def edit
-
-  end
-
   def destroy
-
+    @map = Map.find(params[:id])
+    @map.destroy
+    redirect_to my_maps_path, notice: "Potential Location was successfully removed."
   end
 
   private
