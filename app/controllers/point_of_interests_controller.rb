@@ -14,7 +14,6 @@ class PointOfInterestsController < ApplicationController
       redirect_to map_point_of_interests_path, notice: "Point of Interest was successfully added."
     else
       # set_pois
-      raise
       render :index, status: :unprocessable_entity
     end
   end
@@ -32,7 +31,7 @@ class PointOfInterestsController < ApplicationController
   end
 
   def poi_params
-    params.require(:point_of_interest).permit(:name, :address, :category)
+    params.require(:point_of_interest).permit(:name, :address, :category, :latitude, :longitude, :google_place_id)
   end
 
 

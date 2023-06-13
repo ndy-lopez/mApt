@@ -22,8 +22,6 @@ class MapsController < ApplicationController
     @pois.each do |poi|
       @markers.push({ place_id: poi.google_place_id, lat: poi.latitude, lng: poi.longitude, name: poi.name, type: "point of interest" })
     end
-      @markers.push({ lat: poi.latitude, lng: poi.longitude, name: poi.name, type: "Point of interest" })
-    end
   end
 
   def my_maps
@@ -65,13 +63,10 @@ class MapsController < ApplicationController
     end
   end
 
-
-  def edit
-
-  end
-
   def destroy
-
+    @map = Map.find(params[:id])
+    @map.destroy
+    redirect_to my_maps_path, notice: "Potential Location was successfully removed."
   end
 
   private
