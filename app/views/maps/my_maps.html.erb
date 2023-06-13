@@ -6,7 +6,7 @@
 <% end %>
 
 
-  <%= simple_form_for(@map, html: { data: { controller: 'autocomplete' } }) do |f| %>
+  <%= simple_form_for(@map, html: { data: { controller: 'autocomplete', autocomplete_filter_value: 'city' } }) do |f| %>
     <div class="city-form">
 
       <div class="form-inputs">
