@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   get 'compare', to: 'maps#compare', as: :compare
   resources :maps do
     resources :potential_locations, only: [:create]
+    resources :point_of_interests, only: [:index, :create]
   end
-  resources :point_of_interests
+  resources :point_of_interests, only: [:destroy]
 end

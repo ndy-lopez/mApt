@@ -6,7 +6,9 @@ export default class extends Controller {
   static values = {
     cityInfo: Object,
     markers: Array,
-    poiIds: Array
+    poiIds: Array,
+    poisLat: Array,
+    poisLon: Array
   }
 
   connect() {
@@ -92,19 +94,18 @@ export default class extends Controller {
 
   async matrix() {
     // const { DistanceMatrixService } = await google.maps.importLibrary("DistanceMatrix")
-    console.log(this.poiIdsValue);
-    var origin1 = new google.maps.LatLng(45.4805964, -73.6075075);
-    var origin2 = 'Greenwich, England';
-    var destinationA = 'Stockholm, Sweden';
-    var destinationB = new google.maps.LatLng(50.087692, 14.421150);
+    // console.log(this.poiIdsValue);
+    var origin1 = new google.maps.LatLng(45.5018869, -73.6075075);
+    var destinationA = new google.maps.LatLng(45.5243198, -73.5950124);
 
     const service = new google.maps.DistanceMatrixService();
     // console.log(service)
     service.getDistanceMatrix(
       {
-        origins: [origin1, origin2],
-        destinations: [destinationA, destinationB],
-        travelMode: 'DRIVING',
+        origins: [origin1],
+        destinations: [destinationA],
+        travelMode: 'WALKING',
+        // 'WALKING', 'BIKING', 'PUBLIC TRANSIT',
         // transitOptions: TransitOptions,
         // drivingOptions: DrivingOptions,
         unitSystem: google.maps.UnitSystem.METRIC,
@@ -115,7 +116,7 @@ export default class extends Controller {
 
     }
     async callback(response, status) {
-      // console.log(response);
+      console.log(response);
     }
 
 };

@@ -1,24 +1,23 @@
 class PointOfInterestsController < ApplicationController
+  before_action :set_map, except: :destroy
 
   def index
-    set_pois
+    @point_of_interests = @map.point_of_interests
     @poi = PointOfInterest.new
-
   end
 
   def create
+    @poi = PointOfInterest.new
     @poi = PointOfInterest.new(poi_params)
-    @poi.map = Map.first
+    @poi.map = Map.find(params[:map_id])
     if @poi.save
-      redirect_to point_of_interests_path, notice: "POI was successfully added."
+
+      redirect_to map_point_of_interests_path, notice: "POI was successfully added."
     else
       # set_pois
+      raise
       render :index, status: :unprocessable_entity
     end
-  end
-
-  def update
-
   end
 
   def destroy
@@ -29,19 +28,8 @@ class PointOfInterestsController < ApplicationController
 
   private
 
-  def set_pois
-    if params[:query].present?
-      @poi = @pois.where(map_id: params[:query].to_i)
-    else
-      @map = current_user.maps.first
-      @pois = current_user.point_of_interests.where(map: @map)
-    end
-    # @map = current_user.maps.first
-    # @pois = current_user.point_of_interests.where(map: @map)
-  end
-
-  def set_poi
-    @poi = PointOfInterest.find(params[:id])
+  def set_map
+    @map = Map.find(params[:map_id])
   end
 
   def poi_params
