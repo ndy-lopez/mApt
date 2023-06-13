@@ -22,7 +22,7 @@
       <div class="adress-div">
         <%= loc.address %>
         <div class ="delete-pol">
-          <%= link_to point_of_interest_path(loc), data: {turbo_method: :delete, turbo_confirm: "Delete #{loc.address}?"} do %>
+          <%= link_to potential_location_path(loc), data: {turbo_method: :delete, turbo_confirm: "Delete #{loc.address}?"} do %>
             <i class="fa-solid fa-x fa-2xs" style="color: #c9c9c9;"></i>
           <% end %>
         </div>

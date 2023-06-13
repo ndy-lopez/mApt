@@ -61,10 +61,12 @@
   border-style: groove;
   justify-content: space-between;
   overflow-wrap: normal;
+
 }
 
 .pol-div {
   display: flex;
+  font-family: $text-font;
 }
 
 .header-search {

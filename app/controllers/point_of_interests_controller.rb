@@ -7,14 +7,13 @@ class PointOfInterestsController < ApplicationController
   end
 
   def create
-    @poi = PointOfInterest.new
     @poi = PointOfInterest.new(poi_params)
-    @poi.map = Map.find(params[:map_id])
+    @map = Map.find(params[:map_id])
+    @poi.map = @map
     if @poi.save
       redirect_to map_point_of_interests_path, notice: "Point of Interest was successfully added."
     else
-      # set_pois
-      raise
+      @point_of_interests = @map.point_of_interests
       render :index, status: :unprocessable_entity
     end
   end
@@ -22,7 +21,7 @@ class PointOfInterestsController < ApplicationController
   def destroy
     @poi = PointOfInterest.find(params[:id])
     @poi.destroy
-    redirect_to point_of_interests_path, notice: "Point of Interest was successfully removed."
+    redirect_to map_point_of_interests_path(@poi.map), notice: "Point of Interest was successfully removed."
   end
 
   private

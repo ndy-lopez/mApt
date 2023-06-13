@@ -13,4 +13,5 @@ Rails.application.routes.draw do
     resources :point_of_interests, only: [:index, :create]
   end
   resources :point_of_interests, only: [:destroy]
+  resources :potential_locations, only: [:destroy]
 end
