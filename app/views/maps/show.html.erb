@@ -1,27 +1,33 @@
-  <div class="header-div">
+<div class="header-div">
   <%# create a logic to display city name that was created %>
     <h1><strong><%= @map.city %></strong></h1>
-
-
     <%= simple_form_for([@map, @new_pot_loc], html: { data: { controller: 'autocomplete' } }) do |f| %>
-      <div class="form-inputs">
-        <%= f.input :address, label: false, input_html: { data: { autocomplete_target: 'searchField' }, placeholder: "Where are you thinking of moving?" } %>
-      </div>
-      <%= render 'shared/form_hidden_google_info', f: %>
-      <div class="form-actions">
-        <%= f.button :submit %>
+      <div class="header-search">
+        <div class="form-inputs">
+          <%= f.input :address, label: false, input_html: { data: { autocomplete_target: 'searchField' }, placeholder: "Where are you thinking of moving?", class: "search-input-map" }%>
+        </div>
+        <%= render 'shared/form_hidden_google_info', f: %>
+        <div class="form-actions">
+          <%= f.button :submit, class: "search-button-map" %>
+        </div>
       </div>
     <% end %>
 
-    <ol>
-      <div>
-        <%  @pot_locs.each do |loc| %>
-        <li><%= loc.address %></li>
-        <% end %>
-      </div>
-    </ol>
 
-  </div>
+  <div class="pol-div">
+    <% @pot_locs.each do |loc| %>
+      <div class="adress-div">
+        <%= loc.address %>
+        <div class ="delete-pol">
+          <%# <%= link_to point_of_interest_path(poi), data: {turbo_method: :delete, turbo_confirm: "Delete #{poi.name}?"} do %>
+            <i class="fa-solid fa-x fa-2xs" style="color: #c9c9c9;"></i>
+          <%# <% end %>
+        </div>
+      </div>
+  <% end %>
+  <a class="btn btn-gradient" href="/compare/">Get Scores</a>
+ </div>
+</div>
 
 <div class="map-toggle">
     <div
