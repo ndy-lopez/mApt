@@ -81,9 +81,13 @@ export default class extends Controller {
 
     #calculateScore(array, targetTime, dropoutPoint) {
 
+      const maxScore = 10
+
       const average = array.reduce((sum, num) => sum + num, 0) / array.length
 
-      const overhead = 10.0 - ((average - targetTime) / dropoutPoint)
+      if (average <= targetTime) return maxScore
+
+      const overhead = maxScore - ((average - targetTime) / dropoutPoint)
 
       return parseFloat(Math.max(0.1, overhead).toFixed(1))
 
