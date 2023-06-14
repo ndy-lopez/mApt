@@ -1,63 +1,67 @@
-
-<div class="rank-div">
-<h3> Rank by</h3>
+ <div class="card-category-2" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= image_path("road.jpg") %>)">
+    <h1 class="compare-heading"> Find the path that suits you.</h1>
 </div>
 
-<div class="adress-card-dropdown">
-    <%= @pot_locs.each do |loc| %>
-      <div class="adress-card">
-        <%= loc.address  %>
-          <% end  %>
+
+
+<% @pot_locs.each do |loc| %>
+  <div class="adress-card-dropdown">
+    <div class="adress-card">
+      <%= loc.address %>
+      <p class="score" >10</p>
+      <%# loc.score %>
+    </div>
+
+
+    <%# <a data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
+      <i class="fa-solid fa-angle-down" style="color: #bdbdbd;">
+    </a> %>
+     <div class="down-arrow" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+        <%= image_tag("caret.png", height: '20', width: '20') %>
       </div>
+    <div class="collapse" id="collapseExample">
+
+          <div class="content">
+            <div class="amneties-progress-bar" >
+              <div>
+                <p>Groceries</p>
+                  <div class="progress" role="progressbar" aria-label="Basic example" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">
+                    <div class="progress-bar" style="width: 5%"></div>
+                  </div>
+              </div>
+
+                <div>
+                <p>Pharmacies </p>
+                    <div class="progress" role="progressbar" aria-label="Basic example" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">
+                      <div class="progress-bar" style="width: 30%"></div>
+                    </div>
+                </div>
+
+                <div>
+                    <p>Public transport</p>
+                  <div class="progress" role="progressbar" aria-label="Basic example" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">
+                    <div class="progress-bar" style="width: 45%"></div>
+                  </div>
+                </div>
+            </div>
+          </div>
+    </div>
+  </div>
+<% end %>
+
+
+<div class ="button-map">
+  <%= link_to 'Back to map page', map_path(@map) %>
 </div>
-
-
-
-
 
   <div class="score-div"
-     data-controller="compare"
-     data-compare-potential-locations-value="<%= @potentialLocations.to_json %>"
-     data-compare-point-of-interests-value="<%= @pointOfInterests.to_json %>">
+    data-controller="compare"
+    data-compare-potential-locations-value="<%= @potentialLocations.to_json %>"
+    data-compare-point-of-interests-value="<%= @pointOfInterests.to_json %>">
 </div>
 
 
-  <h4>Scores</h4>
-    <div class="score-card">
 
-      <div class="amneties-progress-bar" >
-        <div>
-          <p>Groceries</p>
-            <div class="progress" role="progressbar" aria-label="Basic example" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">
-              <div class="progress-bar" style="width: 5%"></div>
-            </div>
-        </div>
-
-        <div>
-        <p>Pharmacies </p>
-            <div class="progress" role="progressbar" aria-label="Basic example" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">
-              <div class="progress-bar" style="width: 30%"></div>
-            </div>
-        </div>
-
-        <div>
-            <p>Public transport</p>
-          <div class="progress" role="progressbar" aria-label="Basic example" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">
-            <div class="progress-bar" style="width: 45%"></div>
-          </div>
-        </div>
-
-
-
-        <div>
-            <p>Public transport</p>
-          <div class="progress" role="progressbar" aria-label="Basic example" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">
-            <div class="progress-bar" style="width: 45%"></div>
-          </div>
-        </div>
-      </div>
-    </div>
-</div>
 
 <%# THIS SCRIPT BELOW IS TEMPORARILY PLACED IN SHOW.HTML.ERB - DO NOT DELETE %>
 <script>
