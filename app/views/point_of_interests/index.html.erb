@@ -8,7 +8,7 @@
     <div>
       <div class="form-inputs">
 
-        <%= f.input :name, placeholder: "Tom's house" %>
+        <%= f.input :name, placeholder: "Tom's House" %>
         <%= f.input :address, placeholder: "2543 Rosemont St", label: false, input_html: { data: { autocomplete_target: 'searchField' } }%>
 
         <%= f.input :category, collection: ["Friends/Family", "Education", "Work"]   %>
@@ -17,7 +17,7 @@
       </div>
 
       <div class="form-actions">
-        <%= f.button:submit %>
+        <%= f.button:submit, "Add Point of Interest", class: "btn-options" %>
       </div>
     </div>
     <% end %>
@@ -30,8 +30,8 @@
           <div class="card-poi">
             <div class="poi-white">
               <div>
-                <p><%= poi.name.capitalize %></p>
-                <p class="poi-black"><%= poi.category.capitalize %></p>
+                <p><%= poi.name.titleize %></p>
+                <p class="poi-black"><%= poi.category.titleize %></p>
               </div>
                   <div class="poi-garbage" >
                   <%= link_to point_of_interest_path(poi), data: {turbo_method: :delete, turbo_confirm: "Delete #{poi.name}?"} do %>
@@ -40,7 +40,7 @@
               </div>
             </div>
              <div class="poi-purple">
-               <p><%= poi.address.capitalize %></p>
+               <p><%= poi.address.titleize %></p>
              </div>
           </div>
         <% end %>
