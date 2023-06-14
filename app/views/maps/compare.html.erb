@@ -2,7 +2,8 @@
   data-controller="compare"
   data-compare-potential-locations-value="<%= @potentialLocations.to_json %>"
   data-compare-map-id-value="<%= @map.id %>"
-  data-compare-point-of-interests-value="<%= @pointOfInterests.to_json %>">
+  data-compare-point-of-interests-value="<%= @pointOfInterests.to_json %>"
+>
 
   <div class="card-category-2" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= image_path("road.jpg") %>)">
       <h1 class="compare-heading"> Find the path that suits you.</h1>
@@ -10,6 +11,7 @@
           <%= link_to 'Map page', map_path(@map) %>
        </button>
   </div>
+
 
  <div class="transportation-btn-div">
     <button class="btn-distances">
@@ -49,13 +51,16 @@
 
 
   <% @pot_locs.each do |loc| %>
-    <div class="adress-card-dropdown" id="<%= loc.id %>" data-compare-target="card">
+    <div
+      class="adress-card-dropdown"
+      id="<%= loc.id %>"
+      data-compare-target="card"
+    >
       <div class="adress-card">
         <%= loc.address %>
         <p class="score" >10</p>
         <%# loc.score %>
       </div>
-
 
       <%# <a data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
         <i class="fa-solid fa-angle-down" style="color: #bdbdbd;">

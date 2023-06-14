@@ -56,34 +56,33 @@ export default class extends Controller {
       let key = this.potentialLocationsValue[i].id
       durations[key] = potentialLocationDurations
     }
-    // console.log(durations)
-    console.log(durations)
 
-    const trial = this.#calculateScore(durations[42], 600, 300)
-    console.log(trial);
+console.log(durations)
+    for (const [cardId, distances] of Object.entries(durations)) {
+      const score = this.#calculateScore(distances, 600, 300)
+      this.#updateResultCard(cardId, score)
+    }
 
-    // const array = durations
-    // const driving = response.rows
-    // var results = response.rows[i].elements;
-    // console.log(driving)
-    // console.log((duration.value));
-    // JSON.stringify(
-    //   response,
-    //   null,
-    //   2
-    // )
 
     });
     // const driving = response
     // console.log(driving)
   }
 
+  #updateResultCard(cardId, score) {
+    const card = this.cardTargets.find(cardTarget => cardTarget.id === cardId)
+    card.querySelector('.score').innerHTML = score
+  }
 
     #calculateScore(array, targetTime, dropoutPoint) {
 
+      const maxScore = 10
+
       const average = array.reduce((sum, num) => sum + num, 0) / array.length
 
-      const overhead = 10.0 - ((average - targetTime) / dropoutPoint)
+      if (average <= targetTime) return maxScore
+
+      const overhead = maxScore - ((average - targetTime) / dropoutPoint)
 
       return parseFloat(Math.max(0.1, overhead).toFixed(1))
 
