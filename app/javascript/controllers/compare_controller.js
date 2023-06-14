@@ -5,12 +5,13 @@ export default class extends Controller {
 
   static values = {
     potentialLocations: Array,
-    pointOfInterests: Array
+    pointOfInterests: Array,
+    mapId: Number,
   }
 
   connect() {
     this.#matrix();
-    console.log(this.potentialLocationsValue)
+    console.log(this.mapIdValue)
     // console.log(this.pointOfInterestsValue)
   }
 
@@ -50,11 +51,15 @@ export default class extends Controller {
         // console.log(keys);
         // values.push(a[i][key]);
       }
-      let key = this.potentialLocationsValue[i].name
+      let key = this.potentialLocationsValue[i].id
       durations[key] = potentialLocationDurations
     }
-    console.log(durations["5751 Clark"])
-    console.log(this.#calculateScore(durations["5751 Clark"], 600, 300))
+    // console.log(durations)
+    console.log(durations)
+
+    const trial = this.#calculateScore(durations[42], 600, 300)
+    console.log(trial);
+
     // const array = durations
     // const driving = response.rows
     // var results = response.rows[i].elements;
@@ -65,6 +70,7 @@ export default class extends Controller {
     //   null,
     //   2
     // )
+
     });
     // const driving = response
     // console.log(driving)
