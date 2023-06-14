@@ -1,7 +1,24 @@
 
-.rank-div {
-  padding: 70px;
-  background-color: whitesmoke;
+.button-map{
+  background-color: white;
+  width: fit-content;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: $light-blue;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  padding: 8px 24px;
+  margin: 100px;
+  border-radius: 50px;
+  border: 1px solid $light-blue;
+  font-weight: lighter;
+  opacity: 0.6;
+  transition: opacity 0.3s ease;
+
+  .hover {
+    opacity: 1;
+  }
+
 }
 .score-div {
   color: $navy;
@@ -27,14 +44,80 @@
   box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
 }
 
-.delete-card {
-  justify-content: space-between;
-  text-align: right;
-
-}
 
 .amneties-progress-bar {
   display:flex;
   align-self: center;
   justify-content: space-between;
+}
+
+.adress-card-dropdown {
+  padding: 15px;
+  min-height: 150px;
+  min-width: 800px;
+  margin: 100px;
+  background-color: white;
+  color: $light-blue;
+  border-radius: 30px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  font-family: $titles-font;
+  font-size: 18px;
+  overflow-wrap: normal;
+  justify-content: center;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+}
+
+.down-arrow {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin-top: 18px;
+}
+.fa-solid {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin-top: 18px;
+}
+
+.score {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: rgb(147, 188, 85);
+  color: white;
+  font-size: 18px;
+  font-weight: bold;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.2);
+  border: white 1px solid;
+  margin: 0;
+
+}
+
+
+.adress-card {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+
+}
+
+.compare-heading {
+  font-family: $titles-font;
+  color: rgb(225, 225, 225);
+  opacity: 0.5;
 }
