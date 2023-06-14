@@ -6,12 +6,14 @@ export default class extends Controller {
   static values = {
     potentialLocations: Array,
     pointOfInterests: Array,
-    mapId: Number,
+    mapId: Number
   }
+
+  static targets = ['card']
 
   connect() {
     this.#matrix();
-    console.log(this.mapIdValue)
+    console.log(this.cardTargets[0].id)
     // console.log(this.pointOfInterestsValue)
   }
 
