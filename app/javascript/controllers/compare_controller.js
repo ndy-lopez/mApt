@@ -11,7 +11,7 @@ export default class extends Controller {
   connect() {
     this.#matrix();
     console.log(this.potentialLocationsValue)
-    console.log(this.pointOfInterestsValue)
+    // console.log(this.pointOfInterestsValue)
   }
 
   async #matrix() {
@@ -33,9 +33,31 @@ export default class extends Controller {
   // get distance matrix response
   const response = service.getDistanceMatrix(request)
   .then((response) => {
-    // console.log(response.rows[0])
-    const driving = response.rows
-    console.log(driving)
+    // console.log(response)
+    var origins = response.originAddresses;
+
+    const durations = {};
+
+
+    for (var i = 0; i < origins.length; i++) {
+      console.log();
+      let potentialLocationDurations = []
+      var results = response.rows[i].elements;
+      for (var j = 0; j < results.length; j++) {
+        // console.log(results[j].duration.value);
+        var duration = results[j].duration.value;
+        potentialLocationDurations.push(duration);
+        // console.log(keys);
+        // values.push(a[i][key]);
+      }
+      let key = this.potentialLocationsValue[i].name
+      durations[key] = potentialLocationDurations
+    }
+    console.log(durations)
+    // const driving = response.rows
+    // var results = response.rows[i].elements;
+    // console.log(driving)
+    // console.log((duration.value));
     // JSON.stringify(
     //   response,
     //   null,

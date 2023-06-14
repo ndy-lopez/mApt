@@ -48,7 +48,8 @@ class MapsController < ApplicationController
         lat: pot_loc.latitude,
         lng: pot_loc.longitude,
         place_id: pot_loc.google_place_id,
-        name: pot_loc.name
+        name: pot_loc.name,
+        id: pot_loc.id
       }
     end
     @pointOfInterests = @pois.select { |poi| poi.latitude.present? && poi.longitude.present? }.map do |poi|
@@ -56,7 +57,8 @@ class MapsController < ApplicationController
         lat: poi.latitude,
         lng: poi.longitude,
         place_id: poi.google_place_id,
-        name: poi.name
+        name: poi.name,
+        id: poi.id
       }
     end
   end
