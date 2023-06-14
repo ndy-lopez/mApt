@@ -13,7 +13,7 @@ class MapsController < ApplicationController
         place_id: pot_loc.google_place_id,
         name: pot_loc.name,
         type: "Potential location",
-        info_window_html: render_to_string(partial: "info_window", locals: { marker: pot_loc })
+        info_window_html: render_to_string(partial: "info_window", locals: { marker: pot_loc, type: "Potential Location" })
       }
     end
 
@@ -23,8 +23,8 @@ class MapsController < ApplicationController
         lat: poi.latitude,
         lng: poi.longitude,
         name: poi.name,
-        type: "point of interest",
-        info_window_html: render_to_string(partial: "info_window", locals: { marker: poi })
+        type: "Point of Interest",
+        info_window_html: render_to_string(partial: "info_window", locals: { marker: poi, type: "Point of Interest" })
       })
     end
 
