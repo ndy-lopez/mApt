@@ -39,10 +39,9 @@ class MapsController < ApplicationController
 
 
   def compare
-
-    @map = Map.first
-    @pot_locs = @map.potential_locations
-    @pois = @map.point_of_interests
+    @map = Map.find(params[:map_id])
+    @pot_locs = PotentialLocation.where(map: @map)
+    @pois = PointOfInterest.where(map: @map)
     @potentialLocations = @pot_locs.select { |pot_loc| pot_loc.latitude.present? && pot_loc.longitude.present? }.map do |pot_loc|
       {
         lat: pot_loc.latitude,
@@ -59,6 +58,7 @@ class MapsController < ApplicationController
         name: poi.name
       }
     end
+    # raise
   end
 
   def create
