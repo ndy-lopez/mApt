@@ -43,3 +43,23 @@
   width: 180px;
   height: 40px;
 }
+
+.btn-options {
+  background: #6c5ce7;
+  border-color: #6c5ce7;
+  border-radius: 5px;
+  font-family: $text-font;
+  width: 180px;
+  height: 40px;
+  color: $light-gray !important;
+}
+
+.btn-options a {
+  color: $light-gray;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.btn-options a:hover {
+  color: $white;
+}
