@@ -2,7 +2,6 @@
 
 
     <h1><strong><%= @map.city %></strong></h1>
-  <%= link_to 'My Address Book', map_point_of_interests_path(@map) %>
 
 
   <%# create a logic to display city name that was created %>
@@ -13,11 +12,19 @@
         </div>
         <%= render 'shared/form_hidden_google_info', f: %>
         <div class="form-actions">
-          <%= f.button :submit, class: "search-button-map" %>
+          <%= f.button :submit, class: "btn btn-gradient" %>
         </div>
       </div>
     <% end %>
 
+    <button class="btn-options">
+  <%= link_to 'My Address Book', map_point_of_interests_path(@map) %>
+    </button>
+    <button class="btn-options">
+  <%= link_to "Compare Scores", map_compare_path(@map) %>
+    </button>
+
+ </div>
 
   <div class="pol-div">
     <% @pot_locs.each do |loc| %>
@@ -30,9 +37,6 @@
         </div>
       </div>
   <% end %>
-
-  <%= link_to "Get Scores", map_compare_path(@map), class: "btn btn-gradient" %>
- </div>
 </div>
 
 
@@ -47,9 +51,6 @@
       data-map-target="content"
       >
     </div>
-
-
-
 
 <%# THIS SCRIPT BELOW IS TEMPORARILY PLACED IN SHOW.HTML.ERB - DO NOT DELETE %>
 <script>
