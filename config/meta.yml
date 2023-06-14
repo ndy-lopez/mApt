@@ -1,5 +1,5 @@
 meta_name: "mApt"
 meta_title: "mApt - Your lifestyle. Without compromise."
 meta_description: "Find Your Perfect Home: Discover the Ultimate Mapping Apt for Informed Relocation Decisions"
-meta_image: "logo.png" # should exist in `app/assets/images/`
+meta_image: "meta.png" # should exist in `app/assets/images/`
 twitter_account: "@mapt"
