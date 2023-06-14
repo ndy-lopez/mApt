@@ -36,13 +36,27 @@
 }
 
 .btn-distances {
-  background-color: $white;
+  background-color: white;
   color: $light-blue;
   border-color: $light-blue;
+  border: solid;
   border-radius: 5px;
   font-family: $text-font;
   width: 180px;
-  height: 40px;
+  height: 60px;
+  margin-top: 20px;
+  opacity: 0.6;
+  position: relative;
+  justify-content: center;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+
+
+
+  .hover  {
+    opacity: 1;
+  }
 }
 
 .btn-options {
@@ -63,4 +77,23 @@
 
 .btn-options a:hover {
   color: $white;
+}
+
+.btn-ghost {
+  color: $light-blue;
+  border: 1px solid $light-blue;
+  padding: 8px 24px;
+  border-radius: 50px;
+  font-weight: lighter;
+  opacity: 0.6;
+  transition: opacity 0.3s ease;
+  a {
+
+    text-decoration: none;
+    color: $light-blue;
+  }
+}
+
+.btn-ghost:hover {
+  opacity: 1;
 }

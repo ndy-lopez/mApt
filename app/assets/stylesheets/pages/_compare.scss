@@ -79,14 +79,7 @@
   text-align: center;
   margin-top: 18px;
 }
-.fa-solid {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  margin-top: 18px;
-}
+
 
 .score {
   width: 50px;
@@ -120,4 +113,19 @@
   font-family: $titles-font;
   color: rgb(225, 225, 225);
   opacity: 0.5;
+}
+
+.transportation {
+  margin: 10px;
+
+}
+
+.transportation-btn-div {
+  display: flex;
+  justify-content: center;
+  gap: 50px;
+}
+
+.distance-name {
+  margin: 0;
 }

@@ -7,7 +7,48 @@
 
   <div class="card-category-2" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= image_path("road.jpg") %>)">
       <h1 class="compare-heading"> Find the path that suits you.</h1>
+        <button class="btn-ghost">
+          <%= link_to 'Map page', map_path(@map) %>
+       </button>
   </div>
+
+
+ <div class="transportation-btn-div">
+    <button class="btn-distances">
+      <div class="transportation">
+        <i class="fa-solid fa-bicycle fa-lg"></i>
+      </div>
+        <div>
+          <p class="distance-name">Biking Distance</p>
+        </div>
+    </button>
+
+     <button class="btn-distances">
+        <div class="transportation">
+          <i class="fa-solid fa-person-walking fa-lg"></i>
+        </div>
+          <div>
+            <p class="distance-name"> Walking Distance</p>
+          </div>
+     </button>
+
+     <button class="btn-distances">
+          <i class="fa-solid fa-bus fa-lg"></i>
+          <div>
+            <p class="distance-name">Bus Distance</p>
+          </div>
+      </button>
+
+     <button class="btn-distances">
+        <div class="transportation">
+          <i class="fa-solid fa-car fa-lg"></i>
+        </div>
+          <div>
+            <p class="distance-name">Car Distance</p>
+          </div>
+      </button>
+  </div>
+
 
   <% @pot_locs.each do |loc| %>
     <div
@@ -60,11 +101,6 @@
 
 
 </div>
-
-<div class ="button-map">
-  <%= link_to 'Back to map page', map_path(@map) %>
-</div>
-
 
 
 
