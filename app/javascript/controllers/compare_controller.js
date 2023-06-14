@@ -53,7 +53,9 @@ export default class extends Controller {
       let key = this.potentialLocationsValue[i].name
       durations[key] = potentialLocationDurations
     }
-    console.log(durations)
+    console.log(durations["5751 Clark"])
+    console.log(this.#calculateScore(durations["5751 Clark"], 600, 300))
+    // const array = durations
     // const driving = response.rows
     // var results = response.rows[i].elements;
     // console.log(driving)
@@ -67,5 +69,22 @@ export default class extends Controller {
     // const driving = response
     // console.log(driving)
   }
+
+
+    #calculateScore(array, targetTime, dropoutPoint) {
+
+      const average = array.reduce((sum, num) => sum + num, 0) / array.length
+
+      const overhead = 10.0 - ((average - targetTime) / dropoutPoint)
+
+      return parseFloat(Math.max(0.1, overhead).toFixed(1))
+
+
+    }
+  // array = array of times in seconds
+  // targetTime = seconds until no longer a 10 score
+  // droupoutPoint = seconds until a score loses one full point
+
+
 
 }
