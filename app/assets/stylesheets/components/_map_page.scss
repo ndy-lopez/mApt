@@ -97,3 +97,57 @@
   position: relative;
   margin: 15px 0;
 }
+
+
+.legend-card {
+  background-color: white;
+  color: black;
+  font-family: $text-font;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  // align-items: center;
+  padding: 10px;
+  height: 150px;
+  overflow-wrap: normal;
+  width: 200px;
+  margin: 6px;
+  position: relative;
+  border-radius: 30px;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px 0px, rgba(0, 0, 0, 0.06) 0px 1px 2px 0px;
+  font-size: 14px;
+  position: relative;
+
+  p {
+    text-align: center;
+    margin-bottom: 15px;
+  }
+}
+
+.legend-list{
+  display: flex;
+  // justify-content: space-between;
+  flex-direction: column;
+  margin: 10px;
+}
+
+.legend-color-poi {
+  width: 20px;
+  height: 18px;
+  border-radius: 50%;
+  background-color: pink;
+  // display: flex;
+  justify-content: space-between;
+  // position: relative;
+
+
+}
+
+.legend-color-pol {
+  width: 20px;
+  height: 18px;
+  border-radius: 50%;
+  background-color: yellow;
+  display: flex;
+  justify-content: space-between;
+}
