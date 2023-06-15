@@ -98,35 +98,24 @@
   margin: 15px 0;
 }
 
-
 .legend-card {
   background-color: white;
   color: black;
   font-family: $text-font;
   display: flex;
-  flex-direction: column;
-  // align-items: center;
+  flex-direction: row; /* Change from 'column' to 'row' */
+  align-items: center; /* Add this line */
   padding: 10px;
-  height: 150px;
+  height: 50px;
   overflow-wrap: normal;
   width: 200px;
   margin: 6px;
   position: relative;
-  border-radius: 30px;
-  box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px 0px, rgba(0, 0, 0, 0.06) 0px 1px 2px 0px;
   font-size: 14px;
-
-  p {
-    // text-align: center;
-    margin-bottom: 15px;
-  }
 }
 
-.legend-list{
-  display: flex;
-  // justify-content: space-between;
-  flex-direction: column;
-  margin: 10px;
+.legend-card p {
+  margin-bottom: 0; /* Change from '15px' to '0' */
 }
 
 .legend-color-poi {
@@ -134,11 +123,7 @@
   height: 18px;
   border-radius: 50%;
   background-color: pink;
-  // display: flex;
-  justify-content: space-between;
-  // position: relative;
-
-
+  margin-right: 10px; /* Add this line to create space between elements */
 }
 
 .legend-color-pol {
@@ -146,6 +131,5 @@
   height: 18px;
   border-radius: 50%;
   background-color: yellow;
-  display: flex;
-  justify-content: space-between;
+  margin-right: 10px; /* Add this line to create space between elements */
 }
