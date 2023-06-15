@@ -1,6 +1,8 @@
 .container-address-book {
   display: flex;
-  justify-content: space-around;
+  gap: 100px;
+  margin-bottom: 50px;
+  justify-content: center;
 }
 
 .card-poi {
@@ -18,7 +20,7 @@
 .poi-white {
   background-color: white;
   color: $purple;
-  font-size: 14px;
+  font-size: 17px;
   font-family: $text-font;
   display: flex;
   height: 60px;
@@ -36,7 +38,7 @@
 .poi-purple {
   background-color: $light-blue;
   color: white;
-  font-size: 14px;
+  font-size: 17px;
   font-family:  $text-font;
   min-height: 60px;
   overflow: hidden;
