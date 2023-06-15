@@ -1,66 +1,67 @@
-<div class="header-div">
+<div class="whole-page">
+  <div class="header-div">
 
 
 
-    <h1><strong><%= @map.city %></strong></h1>
+      <h1><strong><%= @map.city %></strong></h1>
 
 
 
-  <%# create a logic to display city name that was created %>
-    <%= simple_form_for([@map, @new_pot_loc], html: { data: { controller: 'autocomplete' } }) do |f| %>
-      <div class="header-search">
-        <div class="form-inputs">
-          <%= f.input :address, label: false, input_html: { data: { autocomplete_target: 'searchField' }, placeholder: "Where are you thinking of moving?", class: "search-input-map" }%>
+    <%# create a logic to display city name that was created %>
+      <%= simple_form_for([@map, @new_pot_loc], html: { data: { controller: 'autocomplete' } }) do |f| %>
+        <div class="header-search">
+          <div class="form-inputs">
+            <%= f.input :address, label: false, input_html: { data: { autocomplete_target: 'searchField' }, placeholder: "Where are you thinking of moving?", class: "search-input-map" }%>
+          </div>
+          <%= render 'shared/form_hidden_google_info', f: %>
+          <div class="form-actions">
+            <%= f.button :submit, class: "search-button-map" %>
+          </div>
         </div>
-        <%= render 'shared/form_hidden_google_info', f: %>
-        <div class="form-actions">
-          <%= f.button :submit, class: "search-button-map" %>
+      <% end %>
+
+      <button class="btn-options" onclick="window.location.href='/maps/<%= @map.id %>/point_of_interests';">My Address Book</button>
+      <button class="btn-options" onclick="window.location.href='/maps/<%= @map.id %>/compare';">Compare Scores</button>
+
+  </div>
+
+    <div class="pol-div">
+      <% @pot_locs.each do |loc| %>
+        <div class="adress-div">
+          <%= loc.address %>
+          <div class ="delete-pol">
+            <%= link_to potential_location_path(loc), data: {turbo_method: :delete, turbo_confirm: "Delete #{loc.address}?"} do %>
+              <i class="fa-solid fa-x fa-2xs" style="color: #c9c9c9;"></i>
+            <% end %>
+          </div>
         </div>
-      </div>
     <% end %>
-
-    <button class="btn-options" onclick="window.location.href='/maps/<%= @map.id %>/point_of_interests';">My Address Book</button>
-    <button class="btn-options" onclick="window.location.href='/maps/<%= @map.id %>/compare';">Compare Scores</button>
-
- </div>
-
-  <div class="pol-div">
-    <% @pot_locs.each do |loc| %>
-      <div class="adress-div">
-        <%= loc.address %>
-        <div class ="delete-pol">
-          <%= link_to potential_location_path(loc), data: {turbo_method: :delete, turbo_confirm: "Delete #{loc.address}?"} do %>
-            <i class="fa-solid fa-x fa-2xs" style="color: #c9c9c9;"></i>
-          <% end %>
-        </div>
-      </div>
-  <% end %>
-</div>
-
-
-
-<div class="map-toggle">
-    <div
-      id="map"
-      data-controller="map"
-      data-map-city-info-value="<%= @map.google_info.to_json %>"
-      data-map-markers-value="<%= @markers.to_json %>"
-      data-map-poi-ids-value="<%= @point_of_interests_ids.to_json %>"
-      data-map-target="content"
-      >
   </div>
 
-<div class="legend-cards">
-  <div class="legend-card">
-    <div class="legend-color-poi"></div>
-    <p class="text-secondary fw-bold">Potential Locations</p>
-  </div>
-  <div class="legend-card">
-    <div class="legend-color-pol"></div>
-    <p class="text-secondary fw-bold">Point of Interests</p>
+
+
+  <div class="map-toggle">
+      <div
+        id="map"
+        data-controller="map"
+        data-map-city-info-value="<%= @map.google_info.to_json %>"
+        data-map-markers-value="<%= @markers.to_json %>"
+        data-map-poi-ids-value="<%= @point_of_interests_ids.to_json %>"
+        data-map-target="content"
+        >
+    </div>
+
+  <div class="legend-cards">
+    <div class="legend-card">
+      <div class="legend-color-poi"></div>
+      <p class="text-secondary fw-bold">Potential Locations</p>
+    </div>
+    <div class="legend-card">
+      <div class="legend-color-pol"></div>
+      <p class="text-secondary fw-bold">Point of Interests</p>
+    </div>
   </div>
 </div>
-
 
 
 <%# THIS SCRIPT BELOW IS TEMPORARILY PLACED IN SHOW.HTML.ERB - DO NOT DELETE %>
