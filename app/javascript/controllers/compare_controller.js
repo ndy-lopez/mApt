@@ -93,15 +93,29 @@ export default class extends Controller {
       }
 
       for (const [cardId, values] of Object.entries(durations)) {
-        const score = this.#calculateScore(values.distances, settings.targetTime, settings.dropoutPoint)
-        this.#updateResultCard(cardId, score, values.pointOfInterestsData)
+        const scoreValue = this.#calculateScore(values.distances, settings.targetTime, settings.dropoutPoint)
+        this.#updateResultCard(cardId, scoreValue, values.pointOfInterestsData)
       }
     });
   }
 
-  #updateResultCard(cardId, score, pointOfInterestsData) {
+  #updateResultCard(cardId, scoreValue, pointOfInterestsData) {
     const card = this.cardTargets.find(cardTarget => cardTarget.dataset.cardId === cardId)
-    card.querySelector('.score').innerHTML = score
+
+    var scoreColor = ""
+
+    if (scoreValue > 8) {
+      scoreColor = "green";
+    } else if (scoreValue > 5 && scoreValue < 8) {
+      scoreColor = "orange";
+    } else {
+      scoreColor = "red";
+    }
+
+    console.log(scoreValue, scoreColor)
+
+    card.querySelector('.score').innerHTML = scoreValue
+    card.querySelector('.score').style.backgroundColor = scoreColor
 
     for (const [pointOfInterestId, values] of Object.entries(pointOfInterestsData)) {
       const pointOfInterest = card.querySelector(`[data-poi-id="${pointOfInterestId}"]`)
