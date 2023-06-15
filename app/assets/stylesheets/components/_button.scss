@@ -1,10 +1,11 @@
 .btn-get-started {
   background-color: $navy;
   color: $white;
-  width: 150px;
-  height: 40px;
+  width: 180px;
+  height: 60px;
   border-radius: 10px;
   font-family: $text-font;
+  font-size: 20px;
   border-style: none;
   position: absolute;
   top: 50%;
@@ -19,7 +20,7 @@
   color: $white;
   width: 200px;
   height: 40px;
-  border-radius: 5px;
+  border-radius: 10px;
   font-family: $text-font;
   border-style: none;
 }
@@ -40,7 +41,7 @@
   color: $light-blue;
   border-color: $light-blue;
   border: solid;
-  border-radius: 5px;
+  border-radius: 10px;
   font-family: $text-font;
   width: 180px;
   height: 60px;
@@ -50,7 +51,7 @@
   justify-content: center;
   display: flex;
   align-items: center;
-  gap: 5px;
+  gap: 8px;
 
 
 
@@ -62,7 +63,7 @@
 .btn-options {
   background: #6c5ce7;
   border-color: #6c5ce7;
-  border-radius: 5px;
+  border-radius: 10px;
   font-family: $text-font;
   width: 180px;
   height: 40px;
@@ -79,20 +80,20 @@
   color: $white;
 }
 
-.btn-ghost {
-  color: $light-blue;
-  border: 1px solid $light-blue;
-  padding: 8px 24px;
-  border-radius: 50px;
-  font-weight: lighter;
-  opacity: 0.6;
-  transition: opacity 0.3s ease;
-  a {
+// .btn-ghost {
+//   color: $light-blue;
+//   border: 1px solid $light-blue;
+//   padding: 8px 24px;
+//   border-radius: 50px;
+//   font-weight: lighter;
+//   opacity: 0.6;
+//   transition: opacity 0.3s ease;
+//   a {
 
-    text-decoration: none;
-    color: $light-blue;
-  }
-}
+//     text-decoration: none;
+//     color: $light-blue;
+//   }
+// }
 
 .btn-ghost:hover {
   opacity: 1;
@@ -102,9 +103,9 @@
 .btn-active {
   background-color: $navy;
   color: $white;
-  border-color: black !important;
+  border-color: $navy !important;
   border: solid;
-  border-radius: 5px;
+  border-radius: 10px;
   font-family: $text-font;
   width: 180px;
   height: 60px;
