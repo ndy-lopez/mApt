@@ -97,3 +97,22 @@
 .btn-ghost:hover {
   opacity: 1;
 }
+
+
+.btn-active {
+  background-color: $navy;
+  color: $white;
+  border-color: black !important;
+  border: solid;
+  border-radius: 5px;
+  font-family: $text-font;
+  width: 180px;
+  height: 60px;
+  margin-top: 20px;
+  opacity: 0.6;
+  position: relative;
+  justify-content: center;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
