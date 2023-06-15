@@ -91,8 +91,11 @@
             <div>
 
               <% @pois.each do |poi| %>
+              <div data-poi-id="<%= poi.id %>">
                 <h5 class="poi_name"><%= poi.name %></h5>
-                <h6 class="time" >5 minutes</h6>
+                <h6 class="time"></h6>
+                <h6 class="distance"></h6>
+              </div>
               <% end %>
 
 

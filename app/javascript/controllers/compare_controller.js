@@ -67,37 +67,41 @@ export default class extends Controller {
 
       const durations = {};
 
-
       for (var i = 0; i < origins.length; i++) {
-        // console.log();
-        let potentialLocationDurations = []
-        var results = response.rows[i].elements;
+
+        const potentialLocationDurations = []
+        const pointOfInterestsData = {}
+        var results = response.rows[i].elements
         for (var j = 0; j < results.length; j++) {
-          console.log(results[j].duration.value, i, j);
-          var duration = results[j].duration.value;
-          potentialLocationDurations.push(duration);
-          // console.log(keys);
-          // values.push(a[i][key]);
+          const duration = results[j].duration.value
+          potentialLocationDurations.push(duration)
+          const potentialLocationKey = this.pointOfInterestsValue[j].id
+          pointOfInterestsData[potentialLocationKey] = results[j]
         }
-        let key = this.potentialLocationsValue[i].id
-        durations[key] = potentialLocationDurations
+        const potentialLocationsKey = this.potentialLocationsValue[i].id
+        durations[potentialLocationsKey] = {
+          distances: potentialLocationDurations,
+          pointOfInterestsData: pointOfInterestsData
+
+        }
       }
 
-      // console.log(durations)
-      for (const [cardId, distances] of Object.entries(durations)) {
-        const score = this.#calculateScore(distances, settings.targetTime, settings.dropoutPoint)
-        this.#updateResultCard(cardId, score)
+      for (const [cardId, values] of Object.entries(durations)) {
+        const score = this.#calculateScore(values.distances, settings.targetTime, settings.dropoutPoint)
+        this.#updateResultCard(cardId, score, values.pointOfInterestsData)
       }
-
-
     });
-    // const driving = response
-    // console.log(driving)
   }
 
-  #updateResultCard(cardId, score) {
+  #updateResultCard(cardId, score, pointOfInterestsData) {
     const card = this.cardTargets.find(cardTarget => cardTarget.dataset.cardId === cardId)
     card.querySelector('.score').innerHTML = score
+
+    for (const [pointOfInterestId, values] of Object.entries(pointOfInterestsData)) {
+      const pointOfInterest = card.querySelector(`[data-poi-id="${pointOfInterestId}"]`)
+      pointOfInterest.querySelector('.time').innerHTML = values.duration.text
+      pointOfInterest.querySelector('.distance').innerHTML = values.distance.text
+    }
   }
 
   // array = array of times in seconds
