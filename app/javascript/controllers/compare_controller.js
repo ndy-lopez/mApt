@@ -36,6 +36,16 @@ export default class extends Controller {
         targetTime: 600,
         dropoutPoint: 300
       },
+      bus: {
+        travelMode: google.maps.TravelMode.TRANSIT,
+        targetTime: 600,
+        dropoutPoint: 300
+      },
+      driving: {
+        travelMode: google.maps.TravelMode.DRIVING,
+        targetTime: 600,
+        dropoutPoint: 300
+      },
     }
     // build request
     const settings = travelModeSettings[travelMode]
@@ -59,11 +69,11 @@ export default class extends Controller {
 
 
       for (var i = 0; i < origins.length; i++) {
-        console.log();
+        // console.log();
         let potentialLocationDurations = []
         var results = response.rows[i].elements;
         for (var j = 0; j < results.length; j++) {
-          // console.log(results[j].duration.value);
+          console.log(results[j].duration.value, i, j);
           var duration = results[j].duration.value;
           potentialLocationDurations.push(duration);
           // console.log(keys);
@@ -73,7 +83,7 @@ export default class extends Controller {
         durations[key] = potentialLocationDurations
       }
 
-      console.log(durations)
+      // console.log(durations)
       for (const [cardId, distances] of Object.entries(durations)) {
         const score = this.#calculateScore(distances, settings.targetTime, settings.dropoutPoint)
         this.#updateResultCard(cardId, score)
