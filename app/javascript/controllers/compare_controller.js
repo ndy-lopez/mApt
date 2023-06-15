@@ -9,73 +9,50 @@ export default class extends Controller {
     mapId: Number
   }
 
-  static targets = ['card']
+  static targets = ['card', 'initial']
 
   connect() {
-    this.#matrix();
-    console.log(this.cardTargets[0].id)
-    // console.log(this.pointOfInterestsValue)
+    this.#matrix('walking')
   }
 
-  async #matrix() {
+  getScores(event) {
+    this.#matrix(event.currentTarget.dataset.travelMode)
+  }
+
+  async #matrix(travelMode) {
     // initialize services
-  // console.log("test")
+
     const { Map } = await google.maps.importLibrary("maps") // had to add this constructor
-    // const geocoder = new google.maps.Geocoder();
     const service = new google.maps.DistanceMatrixService();
+
+    const travelModeSettings = {
+      walking: {
+        travelMode: google.maps.TravelMode.WALKING,
+        targetTime: 600,
+        dropoutPoint: 300
+      },
+      cycling: {
+        travelMode: google.maps.TravelMode.BICYCLING,
+        targetTime: 600,
+        dropoutPoint: 300
+      },
+    }
     // build request
-    const requestDrive = {
+    const settings = travelModeSettings[travelMode]
+
+    const request = {
       origins: this.potentialLocationsValue,
       destinations: this.pointOfInterestsValue,
-      travelMode: google.maps.TravelMode.DRIVING,
+      travelMode: settings.travelMode,
       unitSystem: google.maps.UnitSystem.METRIC,
       avoidHighways: false,
       avoidTolls: false,
     };
 
-    const requestWalk = {
-      origins: this.potentialLocationsValue,
-      destinations: this.pointOfInterestsValue,
-      travelMode: google.maps.TravelMode.WALKING,
-      unitSystem: google.maps.UnitSystem.METRIC,
-      avoidHighways: false,
-      avoidTolls: false,
-    };
-
-    const requestBike = {
-      origins: this.potentialLocationsValue,
-      destinations: this.pointOfInterestsValue,
-      travelMode: google.maps.TravelMode.BICYCLING,
-      unitSystem: google.maps.UnitSystem.METRIC,
-      avoidHighways: false,
-      avoidTolls: false,
-    };
-
-    const requestTransit = {
-      origins: this.potentialLocationsValue,
-      destinations: this.pointOfInterestsValue,
-      travelMode: google.maps.TravelMode.TRANSIT,
-      unitSystem: google.maps.UnitSystem.METRIC,
-      avoidHighways: false,
-      avoidTolls: false,
-    };
-
-
-
-      // if (button == 'driving')
-      //   request = 'requestDrive';
-      // } else if (button = 'walking') {
-      //   request = 'requestWalk';
-      // } else if (button = 'transit') {
-      //   request = 'requestTransit';
-      // } else if (button = 'bike') {
-      //   request = "requestBike";
-      // }
 
     // get distance matrix response
-    const response = service.getDistanceMatrix(requestWalk)
+    service.getDistanceMatrix(request)
     .then((response) => {
-      // console.log(response)
       var origins = response.originAddresses;
 
       const durations = {};
@@ -98,7 +75,7 @@ export default class extends Controller {
 
       console.log(durations)
       for (const [cardId, distances] of Object.entries(durations)) {
-        const score = this.#calculateScore(distances, 600, 300)
+        const score = this.#calculateScore(distances, settings.targetTime, settings.dropoutPoint)
         this.#updateResultCard(cardId, score)
       }
 
@@ -113,6 +90,9 @@ export default class extends Controller {
     card.querySelector('.score').innerHTML = score
   }
 
+  // array = array of times in seconds
+  // targetTime = seconds until no longer a 10 score
+  // droupoutPoint = seconds until a score loses one full point
   #calculateScore(array, targetTime, dropoutPoint) {
 
     const maxScore = 10
@@ -127,9 +107,7 @@ export default class extends Controller {
 
 
   }
-  // array = array of times in seconds
-  // targetTime = seconds until no longer a 10 score
-  // droupoutPoint = seconds until a score loses one full point
+
 
 
 
