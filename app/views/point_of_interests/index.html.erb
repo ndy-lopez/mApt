@@ -1,13 +1,12 @@
 <div class="score-div">
-  <p class="mt-5"><i class="fa-solid fa-arrow-left"></i> <%= link_to "Go back to Map", map_path(@map.id), class: "text-decoration-none" %></p>
+  <p class="mt-5"><i class="fa-solid fa-arrow-left"></i> <%= link_to "Go back to #{@map.city}", map_path(@map.id), class: "text-decoration-none" %></p>
+
+<h1 class="text-center"><strong><%= @map.city %>'s Points of Interest</strong></h1>
 </div>
+
 
 <div class="container-address-book">
   <div>
-  <div class= "poi-title">
-      <i class="fa-solid fa-address-book fa-2xl" style="color: #11009e;"></i>
-    <h2>My Address Book </h2>
-  </div>
     <%= simple_form_for([@map, @poi], html: { data: { controller: 'autocomplete' } }) do |f| %>
     <div>
       <div class="form-inputs">
