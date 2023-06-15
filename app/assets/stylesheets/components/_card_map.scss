@@ -72,8 +72,6 @@
   color: $white;
   font-size: 26px;
   font-weight: bold;
-  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
-  box-shadow: 0 0 15px rgba(0,0,0,0.2);
   border-bottom: solid 1px;
   margin: 10px;
   width: 800px;
@@ -86,6 +84,7 @@
   background-repeat: no-repeat;
   background-position: center;
   object-fit: cover;
+  border-radius: 10px;
 }
 
 .overlay-content {
@@ -97,4 +96,5 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  border-radius: 10px !important;
 }

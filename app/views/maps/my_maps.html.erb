@@ -1,6 +1,6 @@
 <div class="card-category-2" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= image_path("GPS.jpg") %>)">
 
-    <h1 class="my-cities-heading">My Cities</h1>
+    <h1 class="title">My Cities</h1>
     <%= simple_form_for(@map, html: { data: { controller: 'autocomplete', autocomplete_filter_value: 'city' } }) do |f| %>
     <div class="city-form">
           <%= f.input :city, label: false, input_html: { data: { autocomplete_target: 'searchField' } } %>
@@ -20,22 +20,18 @@
   <% @maps.each do |map| %>
     <%= link_to map_path(map.id) do %>
       <div class="card-item">
-
-          <div class="image-overlay">
             <% unsplash_photo = Unsplash::Photo.search(map.city).first %>
             <% if unsplash_photo %>
               <div class="image-container" style="background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('<%= unsplash_photo.urls.regular %>');">
-              <%# <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/background.png);"> %>
                 <div class="overlay-content">
                   <div class="centered-content">
-                    <p><%= map.city.titleize %></p>
+                    <div class="title"><p><%= map.city.titleize %></p></div>
                   </div>
                 </div>
               </div>
             <% else %>
               <p>No image found for <%= map.city %></p>
             <% end %>
-          </div>
       </div>
     <% end %>
   <% end %>
