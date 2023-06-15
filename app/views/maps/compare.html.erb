@@ -2,24 +2,37 @@
   data-controller="compare"
   data-compare-potential-locations-value="<%= @potentialLocations.to_json %>"
   data-compare-map-id-value="<%= @map.id %>"
-  data-compare-point-of-interests-value="<%= @pointOfInterests.to_json %>">
+  data-compare-point-of-interests-value="<%= @pointOfInterests.to_json %>"
+  data-action="DOMContentLoaded->compare#matrix"
+>
+
 
   <div class="card-category-2" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= image_path("road.jpg") %>)">
       <h1 class="compare-heading"> Find the path that suits you.</h1>
         <button class="btn-ghost" onclick="window.location.href='/maps/<%= @map.id %>';">Map Page</button>
   </div>
 
-  <div class="transportation-btn-div">
-    <button class="btn-distances">
+
+ <div class="transportation-btn-div">
+    <button
+      class="btn-distances"
+      data-travel-mode="walking"
+      data-action="click->compare#getScores"
+      <%# data-compare-target="initial" %>
+    >
       <div class="transportation">
         <i class="fa-solid fa-person-walking fa-lg"></i>
       </div>
-      <div>
-        <p class="distance-name"> Walking</p>
-      </div>
+        <div>
+          <p class="distance-name"> Walking</p>
+        </div>
     </button>
 
-    <button class="btn-distances">
+    <button
+      class="btn-distances"
+      data-travel-mode="cycling"
+      data-action="click->compare#getScores"
+    >
       <div class="transportation">
         <i class="fa-solid fa-bicycle fa-lg"></i>
       </div>
@@ -35,23 +48,41 @@
       </div>
     </button>
 
-    <button class="btn-distances">
-      <div class="transportation">
-        <i class="fa-solid fa-car fa-lg"></i>
-      </div>
-      <div>
-        <p class="distance-name">Driving</p>
-      </div>
+
+    <button
+      class="btn-distances"
+      data-travel-mode="bus"
+      data-action="click->compare#getScores"
+    >
+          <i class="fa-solid fa-bus fa-lg"></i>
+          <div>
+            <p class="distance-name">Public Transit</p>
+          </div>
+      </button>
+
+    <button
+      class="btn-distances"
+      data-travel-mode="driving"
+      data-action="click->compare#getScores"
+    >
+        <div class="transportation">
+          <i class="fa-solid fa-car fa-lg"></i>
+        </div>
+          <div>
+            <p class="distance-name">Driving</p>
+          </div>
       </button>
   </div>
 
   <% @pot_locs.each do |loc| %>
-    <div class="adress-card-dropdown"
-          id="<%= loc.id %>"
-          data-compare-target="card">
+    <div
+      class="adress-card-dropdown"
+      data-card-id="<%= loc.id %>"
+      data-compare-target="card"
+    >
       <div class="adress-card">
         <%= loc.address %>
-        <p class="score" >10</p>
+        <p class="score" ></p>
         <%# loc.score %>
       </div>
 
@@ -59,17 +90,20 @@
         <i class="fa-solid fa-angle-down" style="color: #bdbdbd;">
       </a> %>
       <div class="down-arrow" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
-        <%= image_tag("caret.png", height: '20', width: '20') %>
-      </div>
+          <%= image_tag("caret.png", height: '20', width: '20') %>
+        </div>
 
       <div class="collapse" id="collapseExample">
         <div class="content">
           <div class="amneties-progress-bar" >
             <div>
-            <% @pois.each do |poi| %>
-              <h5 class="poi_name"><%= poi.name %></h5>
-              <h6 class="time" >5 minutes</h6>
-            <% end %>
+
+              <% @pois.each do |poi| %>
+                <h5 class="poi_name"><%= poi.name %></h5>
+                <h6 class="time" >5 minutes</h6>
+              <% end %>
+
+
             </div>
           </div>
         </div>
@@ -77,8 +111,6 @@
     </div>
   <% end %>
 </div>
-
-
 
 <%# THIS SCRIPT BELOW IS TEMPORARILY PLACED IN SHOW.HTML.ERB - DO NOT DELETE %>
 <script>

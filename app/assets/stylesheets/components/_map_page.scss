@@ -97,3 +97,39 @@
   position: relative;
   margin: 15px 0;
 }
+
+.legend-card {
+  background-color: white;
+  color: black;
+  font-family: $text-font;
+  display: flex;
+  flex-direction: row; /* Change from 'column' to 'row' */
+  align-items: center; /* Add this line */
+  padding: 10px;
+  height: 50px;
+  overflow-wrap: normal;
+  width: 200px;
+  margin: 6px;
+  position: relative;
+  font-size: 14px;
+}
+
+.legend-card p {
+  margin-bottom: 0; /* Change from '15px' to '0' */
+}
+
+.legend-color-poi {
+  width: 20px;
+  height: 18px;
+  border-radius: 50%;
+  background-color: pink;
+  margin-right: 10px; /* Add this line to create space between elements */
+}
+
+.legend-color-pol {
+  width: 20px;
+  height: 18px;
+  border-radius: 50%;
+  background-color: yellow;
+  margin-right: 10px; /* Add this line to create space between elements */
+}
