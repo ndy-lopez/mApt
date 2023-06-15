@@ -5,7 +5,8 @@
   data-compare-point-of-interests-value="<%= @pointOfInterests.to_json %>"
   data-action="DOMContentLoaded->compare#matrix">
 
-    <h1 class="text-center"><strong>Compare Scores for <%= @map.city %></strong></h1>
+  <p> <i class="fa-solid fa-arrow-left"></i> <%= link_to "Go back to Map", map_path(@map.id), class: "text-decoration-none" %></p>
+  <h1 class="text-center"><strong>Compare Scores for <%= @map.city %></strong></h1>
 
  <div class="transportation-btn-div">
     <button class="btn-active"
@@ -70,7 +71,7 @@
       <%# <a data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
         <i class="fa-solid fa-angle-down" style="color: #bdbdbd;">
       </a> %>
-            <div class="d-flex justify-content-around mt-3">
+            <div class="poi-grid">
               <% @pois.each do |poi| %>
               <div data-poi-id="<%= poi.id %>">
                   <div class="">

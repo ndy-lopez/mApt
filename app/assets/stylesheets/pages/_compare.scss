@@ -25,6 +25,10 @@
   font-family: $headers-font bold;
   margin: 70px;
   background-color: white;
+
+  a {
+    color: $purple;
+  }
 }
 
 .score-card {
@@ -140,4 +144,13 @@
   display: flex;
   gap: 5px;
   color: gray;
+}
+
+.poi-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  margin: 0 auto;
+  column-gap: 80px;
+  margin: 30px auto;
+  row-gap: 30px;
 }
