@@ -36,6 +36,16 @@ export default class extends Controller {
         targetTime: 600,
         dropoutPoint: 300
       },
+      bus: {
+        travelMode: google.maps.TravelMode.TRANSIT,
+        targetTime: 600,
+        dropoutPoint: 300
+      },
+      driving: {
+        travelMode: google.maps.TravelMode.DRIVING,
+        targetTime: 600,
+        dropoutPoint: 300
+      },
     }
     // build request
     const settings = travelModeSettings[travelMode]
@@ -58,6 +68,7 @@ export default class extends Controller {
       const durations = {};
 
       for (var i = 0; i < origins.length; i++) {
+
         const potentialLocationDurations = []
         const pointOfInterestsData = {}
         var results = response.rows[i].elements
@@ -71,6 +82,7 @@ export default class extends Controller {
         durations[potentialLocationsKey] = {
           distances: potentialLocationDurations,
           pointOfInterestsData: pointOfInterestsData
+
         }
       }
 
