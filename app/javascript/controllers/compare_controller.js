@@ -9,7 +9,7 @@ export default class extends Controller {
     mapId: Number
   }
 
-  static targets = ['card', 'initial']
+  static targets = ['card', 'initial', 'buttons']
 
   connect() {
     this.#matrix('walking')
@@ -17,6 +17,12 @@ export default class extends Controller {
 
   getScores(event) {
     this.#matrix(event.currentTarget.dataset.travelMode)
+    this.buttonsTargets.forEach(button => {
+      button.classList.remove('btn-active')
+      button.classList.add('btn-distances')
+    })
+    event.currentTarget.classList.remove('btn-distances')
+    event.currentTarget.classList.add('btn-active')
   }
 
   async #matrix(travelMode) {
