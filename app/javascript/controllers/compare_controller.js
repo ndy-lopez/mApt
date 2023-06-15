@@ -24,7 +24,7 @@ export default class extends Controller {
   // const geocoder = new google.maps.Geocoder();
   const service = new google.maps.DistanceMatrixService();
   // build request
-  const request = {
+  const requestDrive = {
     origins: this.potentialLocationsValue,
     destinations: this.pointOfInterestsValue,
     travelMode: google.maps.TravelMode.DRIVING,
@@ -33,8 +33,47 @@ export default class extends Controller {
     avoidTolls: false,
   };
 
+  const requestWalk = {
+    origins: this.potentialLocationsValue,
+    destinations: this.pointOfInterestsValue,
+    travelMode: google.maps.TravelMode.WALKING,
+    unitSystem: google.maps.UnitSystem.METRIC,
+    avoidHighways: false,
+    avoidTolls: false,
+  };
+
+  const requestBike = {
+    origins: this.potentialLocationsValue,
+    destinations: this.pointOfInterestsValue,
+    travelMode: google.maps.TravelMode.BICYCLING,
+    unitSystem: google.maps.UnitSystem.METRIC,
+    avoidHighways: false,
+    avoidTolls: false,
+  };
+
+  const requestTransit = {
+    origins: this.potentialLocationsValue,
+    destinations: this.pointOfInterestsValue,
+    travelMode: google.maps.TravelMode.TRANSIT,
+    unitSystem: google.maps.UnitSystem.METRIC,
+    avoidHighways: false,
+    avoidTolls: false,
+  };
+
+
+
+    // if (button == 'driving')
+    //   request = 'requestDrive';
+    // } else if (button = 'walking') {
+    //   request = 'requestWalk';
+    // } else if (button = 'transit') {
+    //   request = 'requestTransit';
+    // } else if (button = 'bike') {
+    //   request = "requestBike";
+    // }
+
   // get distance matrix response
-  const response = service.getDistanceMatrix(request)
+  const response = service.getDistanceMatrix(requestWalk)
   .then((response) => {
     // console.log(response)
     var origins = response.originAddresses;
