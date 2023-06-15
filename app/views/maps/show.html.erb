@@ -19,12 +19,8 @@
       </div>
     <% end %>
 
-    <button class="btn-options">
-  <%= link_to 'My Address Book', map_point_of_interests_path(@map) %>
-    </button>
-    <button class="btn-options">
-  <%= link_to "Compare Scores", map_compare_path(@map) %>
-    </button>
+    <button class="btn-options" onclick="window.location.href='/maps/<%= @map.id %>/point_of_interests';">My Address Book</button>
+    <button class="btn-options" onclick="window.location.href='/maps/<%= @map.id %>/compare';">Compare Scores</button>
 
  </div>
 
