@@ -18,47 +18,47 @@
       <div class="transportation">
         <i class="fa-solid fa-bicycle fa-lg"></i>
       </div>
-        <div>
-          <p class="distance-name">Biking Distance</p>
-        </div>
+      <div>
+        <p class="distance-name">Biking Distance</p>
+      </div>
     </button>
 
-     <button class="btn-distances">
-        <div class="transportation">
-          <i class="fa-solid fa-person-walking fa-lg"></i>
-        </div>
-          <div>
-            <p class="distance-name"> Walking Distance</p>
-          </div>
-     </button>
+    <button class="btn-distances">
+      <div class="transportation">
+        <i class="fa-solid fa-person-walking fa-lg"></i>
+      </div>
+      <div>
+        <p class="distance-name"> Walking Distance</p>
+      </div>
+    </button>
 
-     <button class="btn-distances">
-          <i class="fa-solid fa-bus fa-lg"></i>
-          <div>
-            <p class="distance-name">Bus Distance</p>
-          </div>
-      </button>
+    <button class="btn-distances">
+      <i class="fa-solid fa-bus fa-lg"></i>
+      <div>
+        <p class="distance-name">Bus Distance</p>
+      </div>
+    </button>
 
      <button class="btn-distances">
         <div class="transportation">
           <i class="fa-solid fa-car fa-lg"></i>
         </div>
-          <div>
-            <p class="distance-name">Car Distance</p>
-          </div>
-      </button>
+        <div>
+          <p class="distance-name">Car Distance</p>
+        </div>
+    </button>
   </div>
 
 
   <% @pot_locs.each do |loc| %>
     <div
       class="adress-card-dropdown"
-      id="<%= loc.id %>"
+      data-card-id="<%= loc.id %>"
       data-compare-target="card"
     >
       <div class="adress-card">
         <%= loc.address %>
-        <p class="score" >10</p>
+        <p class="score" ></p>
         <%# loc.score %>
       </div>
 
@@ -69,27 +69,20 @@
           <%= image_tag("caret.png", height: '20', width: '20') %>
         </div>
       <div class="collapse" id="collapseExample">
+        <div class="content">
+          <div class="amneties-progress-bar" >
+            <div>
+              <% @pois.each do |poi| %>
+                <h5 class="poi_name"><%= poi.name %></h5>
+                <h6 class="time" >5 minutes</h6>
+              <% end %>
 
-            <div class="content">
-              <div class="amneties-progress-bar" >
-                <div>
-                <% @pois.each do |poi| %>
-                  <h5 class="poi_name"><%= poi.name %></h5>
-                  <h6 class="time" >5 minutes</h6>
-                <% end %>
-
-                    </div>
-                </div>
-
-
-              </div>
             </div>
+          </div>
+        </div>
       </div>
     </div>
   <% end %>
-
-
-
 </div>
 
 
