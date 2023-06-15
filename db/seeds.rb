@@ -15,7 +15,6 @@ user1 = User.create!(username: 'Smith', email: 'john@gmail.com', password: 'pass
 user2 = User.create!(username: 'Tim', email: 'tim@gmail.com', password: 'password')
 
 map1 = Map.create!(name: 'University', city: 'Montreal', latitude: 45.5018869, longitude: -73.56739189999999, google_place_id: "ChIJDbdkHFQayUwR7-8fITgxTmU", user: user1)
-map2 = Map.create!(name: 'Bachelor Party', city: 'Las Vegas', latitude: 36.171563, longitude: -115.1391009, google_place_id: "ChIJ0X31pIK3voARo3mz1ebVzDo", user: user1)
 
 PointOfInterest.create!(name: 'Concordia Downtown', category: 'Education', address: '1455 Boul. de Maisonneuve Ouest, Montréal, QC', latitude: 45.4971086, longitude: -73.5809226, google_place_id: "abcd" , map_id: map1.id)
 PointOfInterest.create!(name: 'Tom', category: 'Friends/Family', address: '2070 Rue Clark, Montréal, QC', latitude: 45.5111026, longitude: -73.5686359, google_place_id: "abcd" , map_id: map1.id)
