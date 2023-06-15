@@ -3,19 +3,18 @@
   data-compare-potential-locations-value="<%= @potentialLocations.to_json %>"
   data-compare-map-id-value="<%= @map.id %>"
   data-compare-point-of-interests-value="<%= @pointOfInterests.to_json %>"
-  data-action="DOMContentLoaded->compare#matrix"
->
+  data-action="DOMContentLoaded->compare#matrix">
 
 
   <div class="card-category-2" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= image_path("road.jpg") %>)">
-      <h1 class="compare-heading"> Find the path that suits you.</h1>
-        <button class="btn-ghost" onclick="window.location.href='/maps/<%= @map.id %>';">Map Page</button>
+    <h1 class="compare-heading"> Find the path that suits you.</h1>
+    <button class="btn-ghost" onclick="window.location.href='/maps/<%= @map.id %>';">Map Page</button>
   </div>
 
 
  <div class="transportation-btn-div">
     <button
-      class="btn-distances"
+      class="btn-active"
       data-travel-mode="walking"
       data-action="click->compare#getScores"
       <%# data-compare-target="initial" %>
