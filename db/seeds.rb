@@ -17,12 +17,15 @@ user2 = User.create!(username: 'Tim', email: 'tim@gmail.com', password: 'passwor
 map1 = Map.create!(name: 'University', city: 'Montreal', latitude: 45.5018869, longitude: -73.56739189999999, google_place_id: "ChIJDbdkHFQayUwR7-8fITgxTmU", user: user1)
 map2 = Map.create!(name: 'Bachelor Party', city: 'Las Vegas', latitude: 36.171563, longitude: -115.1391009, google_place_id: "ChIJ0X31pIK3voARo3mz1ebVzDo", user: user1)
 
-PointOfInterest.create!(name: 'Tom', category: 'Friends/Family', address: '210 Bd Saint-Joseph E, Montréal, QC H2T 1H6', latitude: 45.5243198, longitude: -73.5894255, google_place_id: "abcd" , map_id: map1.id)
-PointOfInterest.create!(name: 'Concordia', category: 'Education', address: '5333 rue Casgrain #102, Montreal', latitude: 45.5261702, longitude: -73.5950124, google_place_id: "abcd" , map_id: map1.id)
-PointOfInterest.create!(name: 'Mcdonalds', category: 'Work', address: '528 Victoria', latitude: 45.5221592, longitude: -73.6215761, google_place_id: "abcd" , map_id: map1.id)
+PointOfInterest.create!(name: 'Concordia Downtown', category: 'Education', address: '1455 Boul. de Maisonneuve Ouest, Montréal, QC', latitude: 45.4971086, longitude: -73.5809226, google_place_id: "abcd" , map_id: map1.id)
+PointOfInterest.create!(name: 'Tom', category: 'Friends/Family', address: '2070 Rue Clark, Montréal, QC', latitude: 45.5111026, longitude: -73.5686359, google_place_id: "abcd" , map_id: map1.id)
+PointOfInterest.create!(name: 'Jean-Claude', category: 'Friends/Family', address: '4383 Rue Léa Roback, Montréal, QC', latitude: 45.4727414, longitude: -73.5839631, google_place_id: "abcd" , map_id: map1.id)
+PointOfInterest.create!(name: 'Grandma', category: 'Friends/Family', address: '3801 Bd Édouard-Montpetit, Montréal, QC', latitude: 45.4961421, longitude: -73.6256706, google_place_id: "abcd" , map_id: map1.id)
+PointOfInterest.create!(name: 'Pub St-Paul', category: 'Work', address: '124 Rue Saint-Paul E, Montréal, QC', latitude: 45.5069444, longitude: -73.5525, google_place_id: "abcd" , map_id: map1.id)
+PointOfInterest.create!(name: 'Rock Climbing Allez Up', category: 'Leisure', address: '4137 Bd LaSalle, Verdun, QC', latitude: 45.4623795, longitude: -73.5636086, google_place_id: "abcd" , map_id: map1.id)
 
-PotentialLocation.create!(name: '5507 St-Dominique', address: '5507 rue St-Dominique, Montreal, QC, H2T1V5', latitude: 45.5264186, longitude: -73.6001531, google_place_id: "abcd" , map_id: map1.id)
-PotentialLocation.create!(name: '21 St-Viateur Est', address: '21 rue St-Viateur Est, Montreal, QC, H2T1A5', latitude: 45.5262563, longitude: -73.6014215, google_place_id: "abcd" , map_id: map1.id)
-PotentialLocation.create!(name: '5751 Clark', address: '5751 rue Clark, Montreal, QC, H2T2V5', latitude: 45.5267046, longitude: -73.6028031, google_place_id: "abcd" , map_id: map1.id)
+PotentialLocation.create!(name: 'Plateau', address: '3801 Av. Coloniale, Montréal, QC', latitude: 45.5163582, longitude: -73.5753602, google_place_id: "abcd" , map_id: map1.id)
+PotentialLocation.create!(name: 'Downtown', address: '2061 Rue Stanley, Montréal, QC', latitude: 45.5008266, longitude: -73.5764843, google_place_id: "abcd" , map_id: map1.id)
+PotentialLocation.create!(name: 'Westmount', address: '12 Pl. Park, Westmount, QC', latitude: 45.48018, longitude: -73.5979451, google_place_id: "abcd" , map_id: map1.id)
 
 puts "Generating Users, maps, POIs and POLs..."
