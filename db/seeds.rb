@@ -17,8 +17,10 @@ user2 = User.create!(username: 'Tim', email: 'tim@gmail.com', password: 'passwor
 map1 = Map.create!(name: 'University', city: 'Montreal', latitude: 45.5018869, longitude: -73.56739189999999, google_place_id: "ChIJDbdkHFQayUwR7-8fITgxTmU", user: user1)
 
 PointOfInterest.create!(name: 'Concordia Downtown', category: 'Education', address: '1455 Boul. de Maisonneuve Ouest, Montréal, QC', latitude: 45.4971086, longitude: -73.5809226, google_place_id: "abcd" , map_id: map1.id)
+PointOfInterest.create!(name: 'Concordia Loyola', category: 'Education', address: '7141 Sherbrooke Ouest, Montréal, QC', latitude: 45.4619879, longitude: 73.6391262, google_place_id: "abcd" , map_id: map1.id)
 PointOfInterest.create!(name: 'Tom', category: 'Friends/Family', address: '2070 Rue Clark, Montréal, QC', latitude: 45.5111026, longitude: -73.5686359, google_place_id: "abcd" , map_id: map1.id)
-PointOfInterest.create!(name: 'Jean-Claude', category: 'Friends/Family', address: '4383 Rue Léa Roback, Montréal, QC', latitude: 45.4727414, longitude: -73.5839631, google_place_id: "abcd" , map_id: map1.id)
+PointOfInterest.create!(name: 'My Boo 😍🥰', category: 'Friends/Family', address: '344 Portland Ave, Mount Royal, QC', latitude: 45.30334, longitude: -73.38487, google_place_id: "abcd" , map_id: map1.id)
+PointOfInterest.create!(name: 'Kevin', category: 'Friends/Family', address: '4383 Rue Léa Roback, Montréal, QC', latitude: 45.4727414, longitude: -73.5839631, google_place_id: "abcd" , map_id: map1.id)
 PointOfInterest.create!(name: 'Grandma', category: 'Friends/Family', address: '3801 Bd Édouard-Montpetit, Montréal, QC', latitude: 45.4961421, longitude: -73.6256706, google_place_id: "abcd" , map_id: map1.id)
 PointOfInterest.create!(name: 'Pub St-Paul', category: 'Work', address: '124 Rue Saint-Paul E, Montréal, QC', latitude: 45.5069444, longitude: -73.5525, google_place_id: "abcd" , map_id: map1.id)
 PointOfInterest.create!(name: 'Rock Climbing Allez Up', category: 'Leisure', address: '4137 Bd LaSalle, Verdun, QC', latitude: 45.4623795, longitude: -73.5636086, google_place_id: "abcd" , map_id: map1.id)
