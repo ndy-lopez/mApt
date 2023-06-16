@@ -14,7 +14,7 @@
         <%= f.input :name, placeholder: "Tom's House" %>
         <%= f.input :address, placeholder: "2543 Rosemont St", label: false, input_html: { data: { autocomplete_target: 'searchField' } }%>
 
-        <%= f.input :category, collection: ["Friends/Family", "Education", "Work"]   %>
+        <%= f.input :category, collection: ["Friends/Family", "Education", "Work", "Leisure", "Sports", "Other"]   %>
         <%= render 'shared/form_hidden_google_info', f: %>
 
       </div>
