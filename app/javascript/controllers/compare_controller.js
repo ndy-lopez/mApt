@@ -104,9 +104,9 @@ export default class extends Controller {
 
     var scoreColor = ""
 
-    if (scoreValue > 8) {
+    if (scoreValue >= 8) {
       scoreColor = "green";
-    } else if (scoreValue > 5 && scoreValue < 8) {
+    } else if (scoreValue >= 5 && scoreValue < 8) {
       scoreColor = "orange";
     } else {
       scoreColor = "red";
