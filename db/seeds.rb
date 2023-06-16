@@ -23,7 +23,7 @@ PointOfInterest.create!(name: 'My Boo 😍🥰', category: 'Friends/Family', add
 PointOfInterest.create!(name: 'Kevin', category: 'Friends/Family', address: '4383 Rue Léa Roback, Montréal, QC', latitude: 45.4727414, longitude: -73.5839631, google_place_id: "abcd" , map_id: map1.id)
 PointOfInterest.create!(name: 'Grandma', category: 'Friends/Family', address: '3801 Bd Édouard-Montpetit, Montréal, QC', latitude: 45.4961421, longitude: -73.6256706, google_place_id: "abcd" , map_id: map1.id)
 PointOfInterest.create!(name: 'Pub St-Paul', category: 'Work', address: '124 Rue Saint-Paul E, Montréal, QC', latitude: 45.5069444, longitude: -73.5525, google_place_id: "abcd" , map_id: map1.id)
-PointOfInterest.create!(name: 'Rock Climbing Allez Up', category: 'Leisure', address: '4137 Bd LaSalle, Verdun, QC', latitude: 45.4623795, longitude: -73.5636086, google_place_id: "abcd" , map_id: map1.id)
+PointOfInterest.create!(name: 'Rock Climbing Allez Up', category: 'Leisure', address: '1555 Saint-Patrick St., Montreal, QC', latitude: 45.4868878, longitude: -73.5635974, google_place_id: "abcd" , map_id: map1.id)
 
 PotentialLocation.create!(name: 'Plateau', address: '3801 Av. Coloniale, Montréal, QC', latitude: 45.5163582, longitude: -73.5753602, google_place_id: "abcd" , map_id: map1.id)
 PotentialLocation.create!(name: 'Downtown', address: '2061 Rue Stanley, Montréal, QC', latitude: 45.5008266, longitude: -73.5764843, google_place_id: "abcd" , map_id: map1.id)
