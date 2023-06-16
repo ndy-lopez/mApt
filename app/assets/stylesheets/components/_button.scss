@@ -26,7 +26,7 @@
 }
 
 .btn-add-city {
-  background-color: $purple;
+  background-color: $navy;
   color: $white;
   width: 120px;
   height: 40px;
@@ -34,6 +34,8 @@
   font-family: $text-font;
   border-style: none;
   margin-bottom: 16px;
+  margin-left: -5px;
+  border-radius: 0 10px 10px 0;
 }
 
 .btn-distances {
