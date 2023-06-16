@@ -5,7 +5,7 @@
   data-compare-point-of-interests-value="<%= @pointOfInterests.to_json %>"
   data-action="DOMContentLoaded->compare#matrix">
 
-  <p> <i class="fa-solid fa-arrow-left"></i> <%= link_to "Go back to Map", map_path(@map.id), class: "text-decoration-none" %></p>
+  <p> <i class="fa-solid fa-arrow-left"></i> <%= link_to "Go back to #{@map.city}", map_path(@map.id), class: "text-decoration-none" %></p>
   <h1 class="text-center"><strong>Compare Scores for <%= @map.city %></strong></h1>
 
  <div class="transportation-btn-div">
