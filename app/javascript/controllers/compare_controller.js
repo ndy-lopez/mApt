@@ -35,22 +35,22 @@ export default class extends Controller {
       walking: {
         travelMode: google.maps.TravelMode.WALKING,
         targetTime: 600,
-        dropoutPoint: 480
+        dropoutPoint: 420
       },
       cycling: {
         travelMode: google.maps.TravelMode.BICYCLING,
-        targetTime: 600,
-        dropoutPoint: 420
+        targetTime: 470,
+        dropoutPoint: 300
       },
       bus: {
         travelMode: google.maps.TravelMode.TRANSIT,
         targetTime: 600,
-        dropoutPoint: 420
+        dropoutPoint: 360
       },
       driving: {
         travelMode: google.maps.TravelMode.DRIVING,
         targetTime: 600,
-        dropoutPoint: 420
+        dropoutPoint: 360
       },
     }
     // build request
