@@ -1,4 +1,4 @@
-# Mapping Apt - Relocation Decision-Making App
+# mApt - Relocation Decision-Making App
 
 Welcome to mApt! This app is designed to help individuals make educated and responsible decisions when it comes to relocating or finding a new place to stay. Whether you're moving to a new city, considering a neighborhood change, or simply looking for a temporary residence, mApt is here to assist you.
 
